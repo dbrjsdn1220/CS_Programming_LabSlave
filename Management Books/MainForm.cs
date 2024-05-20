@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Management_Books
 {
-    public partial class MainFoam : Form
+    public partial class MainForm : Form
     {
-        public MainFoam()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -20,21 +20,24 @@ namespace Management_Books
         private void btn_search_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            SearchFoam subFoam = new SearchFoam();
-            subFoam.ShowDialog();
+            SearchForm subForm = new SearchForm();
+            subForm.ShowDialog();
             this.Visible = true;
         }
 
         private void btn_borrow_Click(object sender, EventArgs e)
         {
-
+            this.Visible = false;
+            BorrowForm subForm = new BorrowForm();
+            subForm.ShowDialog();
+            this.Visible = true;
         }
 
         private void btn_manage_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            LoginFoam subFoam = new LoginFoam();
-            subFoam.ShowDialog();
+            LoginForm subForm = new LoginForm();
+            subForm.ShowDialog();
             this.Visible = true;
         }
     }
