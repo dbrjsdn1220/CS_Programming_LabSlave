@@ -13,3 +13,4 @@ C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Bo
 C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management_Books.SearchFoam.resources
 C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management_Books.ManageFoam.resources
 C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management_Books.InsertForm.resources
+C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management_Books.BookDetailForm.resources

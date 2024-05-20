@@ -16,5 +16,13 @@ namespace Management_Books
         {
             InitializeComponent();
         }
+
+        private void BookDetailForm_Load(object sender, EventArgs e)
+        {
+            list_copy.Columns.Add("번호", (int)(list_copy.Width * 0.1));
+            list_copy.Columns.Add("대출자", (int)(list_copy.Width * 0.3));
+            list_copy.Columns.Add("대출 일자", (int)(list_copy.Width * 0.3));
+            list_copy.Columns.Add("반납 예정", (int)(list_copy.Width * 0.3));
+        }
     }
 }

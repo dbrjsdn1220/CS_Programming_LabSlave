@@ -34,6 +34,7 @@
             this.tb_id = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_login = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // tb_pwd
@@ -116,5 +117,6 @@
         private System.Windows.Forms.TextBox tb_id;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_login;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

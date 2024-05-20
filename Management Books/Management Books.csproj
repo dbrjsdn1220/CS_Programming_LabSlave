@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookDetailForm.Designer.cs">
+      <DependentUpon>BookDetailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InsertForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     <Compile Include="SearchFoam.Designer.cs">
       <DependentUpon>SearchFoam.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BookDetailForm.resx">
+      <DependentUpon>BookDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InsertForm.resx">
       <DependentUpon>InsertForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -38,7 +38,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cb_category = new System.Windows.Forms.ComboBox();
             this.btn_insert = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_reset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -106,7 +106,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 12);
             this.label5.TabIndex = 22;
-            this.label5.Text = "장르";
+            this.label5.Text = "분류";
             // 
             // cb_category
             // 
@@ -125,23 +125,25 @@
             this.btn_insert.TabIndex = 24;
             this.btn_insert.Text = "추가";
             this.btn_insert.UseVisualStyleBackColor = false;
+            this.btn_insert.Click += new System.EventHandler(this.btn_insert_Click);
             // 
-            // button1
+            // btn_reset
             // 
-            this.button1.BackColor = System.Drawing.Color.LightGray;
-            this.button1.Location = new System.Drawing.Point(35, 196);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(70, 23);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "초기화";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_reset.BackColor = System.Drawing.Color.LightGray;
+            this.btn_reset.Location = new System.Drawing.Point(35, 196);
+            this.btn_reset.Name = "button1";
+            this.btn_reset.Size = new System.Drawing.Size(70, 23);
+            this.btn_reset.TabIndex = 25;
+            this.btn_reset.Text = "초기화";
+            this.btn_reset.UseVisualStyleBackColor = false;
+            this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
             // 
             // InsertForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(225, 234);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_reset);
             this.Controls.Add(this.btn_insert);
             this.Controls.Add(this.cb_category);
             this.Controls.Add(this.label5);
@@ -154,6 +156,7 @@
             this.Controls.Add(this.label1);
             this.Name = "InsertForm";
             this.Text = "InsertForm";
+            this.Load += new System.EventHandler(this.InsertForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,6 +174,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cb_category;
         private System.Windows.Forms.Button btn_insert;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_reset;
     }
 }

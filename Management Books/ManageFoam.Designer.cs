@@ -33,7 +33,7 @@
             this.btn_search = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_insert = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cb_category = new System.Windows.Forms.ComboBox();
             this.label_name = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -54,6 +54,7 @@
             this.list_book.TabIndex = 19;
             this.list_book.UseCompatibleStateImageBehavior = false;
             this.list_book.View = System.Windows.Forms.View.Details;
+            this.list_book.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.list_book_ColumnClick);
             // 
             // btn_search
             // 
@@ -64,6 +65,7 @@
             this.btn_search.TabIndex = 17;
             this.btn_search.Text = "검색";
             this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // label1
             // 
@@ -84,26 +86,27 @@
             this.btn_insert.TabIndex = 21;
             this.btn_insert.Text = "추가";
             this.btn_insert.UseVisualStyleBackColor = true;
+            this.btn_insert.Click += new System.EventHandler(this.btn_insert_Click);
             // 
-            // comboBox1
+            // cb_category
             // 
-            this.comboBox1.DisplayMember = "제목";
-            this.comboBox1.Font = new System.Drawing.Font("돋움", 9F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 84);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(55, 20);
-            this.comboBox1.TabIndex = 25;
-            this.comboBox1.ValueMember = "제목";
+            this.cb_category.DisplayMember = "제목";
+            this.cb_category.Font = new System.Drawing.Font("돋움", 9F);
+            this.cb_category.FormattingEnabled = true;
+            this.cb_category.Location = new System.Drawing.Point(12, 84);
+            this.cb_category.Name = "cb_category";
+            this.cb_category.Size = new System.Drawing.Size(55, 20);
+            this.cb_category.TabIndex = 25;
+            this.cb_category.ValueMember = "제목";
             // 
             // label_name
             // 
             this.label_name.AutoSize = true;
-            this.label_name.Location = new System.Drawing.Point(554, 9);
+            this.label_name.Location = new System.Drawing.Point(10, 9);
             this.label_name.Name = "label_name";
-            this.label_name.Size = new System.Drawing.Size(69, 12);
+            this.label_name.Size = new System.Drawing.Size(29, 12);
             this.label_name.TabIndex = 26;
-            this.label_name.Text = "관리자 이름";
+            this.label_name.Text = "이름";
             // 
             // ManageFoam
             // 
@@ -111,7 +114,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(635, 450);
             this.Controls.Add(this.label_name);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cb_category);
             this.Controls.Add(this.btn_insert);
             this.Controls.Add(this.tb_search);
             this.Controls.Add(this.list_book);
@@ -132,7 +135,7 @@
         private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_insert;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cb_category;
         private System.Windows.Forms.Label label_name;
     }
 }
