@@ -23,7 +23,7 @@ namespace Management_Books.service
 			{
 				if (member.getPwd().Equals(result.getPwd()))
 				{
-					memberRepository.Close();
+					memberRepository.AllClose();
 					return 2;
 				}
 				return 1;

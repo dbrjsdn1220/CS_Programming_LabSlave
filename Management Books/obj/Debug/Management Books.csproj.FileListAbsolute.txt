@@ -14,3 +14,50 @@ C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Bo
 C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management_Books.ManageFoam.resources
 C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management_Books.InsertForm.resources
 C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management_Books.BookDetailForm.resources
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\Management Books.exe.config
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\Management Books.exe
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\Management Books.pdb
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\Google.Protobuf.dll
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\MySql.Data.dll
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\System.Buffers.dll
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\System.IO.Pipelines.dll
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\System.Memory.dll
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\ZstdSharp.dll
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\Google.Protobuf.pdb
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\Google.Protobuf.xml
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\MySql.Data.xml
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\System.Buffers.xml
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\System.IO.Pipelines.xml
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\System.Memory.xml
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management Books.csproj.AssemblyReference.cache
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.BookDetailForm.resources
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.InsertForm.resources
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.ManageFoam.resources
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.LoginFoam.resources
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.MainFoam.resources
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.Properties.Resources.resources
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.SearchFoam.resources
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management Books.csproj.GenerateResource.cache
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management Books.csproj.CoreCompileInputs.cache
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Manageme.267DB722.Up2Date
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management Books.exe
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management Books.pdb

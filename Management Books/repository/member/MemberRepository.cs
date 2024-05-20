@@ -21,7 +21,7 @@ namespace Management_Books.repository.member
 
 		public MemberEntity Select(MemberEntity member)
 		{
-			string query = "SELECT * FROM members WHERE member_id = @memeber_id";
+			string query = "SELECT * FROM members WHERE member_id = @member_id";
 			cmd = GetCommand(query, conn);
 			cmd.Parameters.Clear();
 			cmd.Parameters.AddWithValue("@member_id", member.getId());
@@ -39,11 +39,15 @@ namespace Management_Books.repository.member
 			catch (MySqlException e)
 			{
 				Console.WriteLine("[MemberRepository.cs / Select / error : " + e.Message + "]");
+			} finally
+			{
+				ReaderClose();
+				CommandClose();
 			}
 			return new MemberBuilder().build();
 		}
 
-		public void Close()
+		public void ReaderClose()
 		{
 			try
 			{
@@ -63,6 +67,10 @@ namespace Management_Books.repository.member
 					reader.Dispose();
 				}
 			}
+		}
+
+		public void CommandClose()
+		{
 			try
 			{
 				if (cmd != null)
@@ -74,6 +82,10 @@ namespace Management_Books.repository.member
 			{
 				Console.WriteLine("\n\ncommand disposing error : " + e.Message + "\n\n");
 			}
+		}
+
+		public void ConnectionClose()
+		{
 			try
 			{
 				if (conn != null)
@@ -92,6 +104,13 @@ namespace Management_Books.repository.member
 					conn.Dispose();
 				}
 			}
+		}
+
+		public void AllClose()
+		{
+			ReaderClose();
+			CommandClose();
+			ConnectionClose();
 		}
 	}
 }
