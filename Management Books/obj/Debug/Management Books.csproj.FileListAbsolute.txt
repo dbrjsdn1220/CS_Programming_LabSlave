@@ -1,0 +1,15 @@
+C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\bin\Debug\Management Books.exe.config
+C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\bin\Debug\Management Books.exe
+C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\bin\Debug\Management Books.pdb
+C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management Books.csproj.AssemblyReference.cache
+C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management Books.csproj.SuggestedBindingRedirects.cache
+C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management_Books.LoginFoam.resources
+C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management_Books.Properties.Resources.resources
+C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management Books.csproj.GenerateResource.cache
+C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management Books.csproj.CoreCompileInputs.cache
+C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management Books.exe
+C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management Books.pdb
+C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management_Books.MainFoam.resources
+C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management_Books.SearchFoam.resources
+C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management_Books.ManageFoam.resources
+C:\Users\dbrjs\OneDrive\Desktop\코딩\CS Project\Management Books\Management Books\obj\Debug\Management_Books.InsertForm.resources
