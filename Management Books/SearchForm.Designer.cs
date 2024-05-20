@@ -1,6 +1,6 @@
 ﻿namespace Management_Books
 {
-    partial class SearchFoam
+    partial class SearchForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,12 +32,11 @@
             this.list_book = new System.Windows.Forms.ListView();
             this.cb_category = new System.Windows.Forms.ComboBox();
             this.btn_search = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tb_search
             // 
-            this.tb_search.Location = new System.Drawing.Point(73, 83);
+            this.tb_search.Location = new System.Drawing.Point(73, 12);
             this.tb_search.Name = "tb_search";
             this.tb_search.Size = new System.Drawing.Size(497, 21);
             this.tb_search.TabIndex = 15;
@@ -46,7 +45,7 @@
             // 
             this.list_book.GridLines = true;
             this.list_book.HideSelection = false;
-            this.list_book.Location = new System.Drawing.Point(12, 112);
+            this.list_book.Location = new System.Drawing.Point(12, 41);
             this.list_book.Name = "list_book";
             this.list_book.Size = new System.Drawing.Size(611, 326);
             this.list_book.TabIndex = 14;
@@ -58,7 +57,7 @@
             this.cb_category.DisplayMember = "제목";
             this.cb_category.Font = new System.Drawing.Font("돋움", 9F);
             this.cb_category.FormattingEnabled = true;
-            this.cb_category.Location = new System.Drawing.Point(12, 84);
+            this.cb_category.Location = new System.Drawing.Point(12, 13);
             this.cb_category.Name = "cb_category";
             this.cb_category.Size = new System.Drawing.Size(55, 20);
             this.cb_category.TabIndex = 13;
@@ -67,7 +66,7 @@
             // btn_search
             // 
             this.btn_search.Font = new System.Drawing.Font("돋움", 9F);
-            this.btn_search.Location = new System.Drawing.Point(576, 83);
+            this.btn_search.Location = new System.Drawing.Point(576, 12);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(47, 23);
             this.btn_search.TabIndex = 12;
@@ -75,26 +74,15 @@
             this.btn_search.UseVisualStyleBackColor = true;
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("돋움", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(186, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(271, 37);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "도서 목록 조회";
-            // 
             // SearchFoam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 450);
+            this.ClientSize = new System.Drawing.Size(635, 378);
             this.Controls.Add(this.tb_search);
             this.Controls.Add(this.list_book);
             this.Controls.Add(this.cb_category);
             this.Controls.Add(this.btn_search);
-            this.Controls.Add(this.label1);
             this.Name = "SearchFoam";
             this.Text = "도서 목록 조회";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SearchFoam_FormClosed);
@@ -109,6 +97,5 @@
         private System.Windows.Forms.ListView list_book;
         private System.Windows.Forms.ComboBox cb_category;
         private System.Windows.Forms.Button btn_search;
-        private System.Windows.Forms.Label label1;
     }
 }

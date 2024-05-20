@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Management_Books
 {
-    public partial class ManageFoam : Form
+    public partial class ManageForm : Form
     {
         string admin;
 
-        public ManageFoam(string name)
+        public ManageForm(string name)
         {
             InitializeComponent();
             admin = name;
@@ -22,7 +22,7 @@ namespace Management_Books
 
         private void ManageFoam_Load(object sender, EventArgs e)
         {
-            label_name.Text = admin+"님";
+            label_name.Text = "관리자(" + admin + ")";
             list_book.Columns.Add("장르", (int)(list_book.Width * 0.12));
             list_book.Columns.Add("저자", (int)(list_book.Width * 0.2));
             list_book.Columns.Add("제목", (int)(list_book.Width * 0.58));

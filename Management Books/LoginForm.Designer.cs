@@ -1,6 +1,6 @@
 ﻿namespace Management_Books
 {
-    partial class LoginFoam
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,13 +32,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tb_id = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btn_login = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tb_pwd
             // 
-            this.tb_pwd.Location = new System.Drawing.Point(96, 117);
+            this.tb_pwd.Location = new System.Drawing.Point(90, 50);
             this.tb_pwd.Name = "tb_pwd";
             this.tb_pwd.Size = new System.Drawing.Size(168, 21);
             this.tb_pwd.TabIndex = 8;
@@ -46,7 +45,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 120);
+            this.label3.Location = new System.Drawing.Point(27, 53);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 7;
@@ -55,7 +54,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(35, 93);
+            this.label2.Location = new System.Drawing.Point(27, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 6;
@@ -63,25 +62,15 @@
             // 
             // tb_id
             // 
-            this.tb_id.Location = new System.Drawing.Point(96, 90);
+            this.tb_id.Location = new System.Drawing.Point(90, 23);
             this.tb_id.Name = "tb_id";
             this.tb_id.Size = new System.Drawing.Size(168, 21);
             this.tb_id.TabIndex = 5;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("돋움", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(21, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(258, 37);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "관리자 로그인";
-            // 
             // btn_login
             // 
             this.btn_login.BackColor = System.Drawing.Color.Gold;
-            this.btn_login.Location = new System.Drawing.Point(189, 153);
+            this.btn_login.Location = new System.Drawing.Point(183, 88);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(75, 23);
             this.btn_login.TabIndex = 10;
@@ -93,9 +82,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 192);
+            this.ClientSize = new System.Drawing.Size(290, 130);
             this.Controls.Add(this.btn_login);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.tb_pwd);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -114,7 +102,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_id;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_login;
     }
 }

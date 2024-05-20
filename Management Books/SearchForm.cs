@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Management_Books
 {
-    public partial class SearchFoam : Form
+    public partial class SearchForm : Form
     {
-        public SearchFoam()
+        public SearchForm()
         {
             InitializeComponent();
         }

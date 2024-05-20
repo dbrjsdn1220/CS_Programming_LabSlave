@@ -33,11 +33,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tb_title = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_deleteAll = new System.Windows.Forms.Button();
             this.list_copy = new System.Windows.Forms.ListView();
             this.tb_category = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
+            this.btn_extend = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label5
@@ -81,14 +81,14 @@
             this.label1.TabIndex = 24;
             this.label1.Text = "제목";
             // 
-            // button2
+            // btn_deleteAll
             // 
-            this.button2.Location = new System.Drawing.Point(564, 15);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(82, 23);
-            this.button2.TabIndex = 33;
-            this.button2.Text = "전체 삭제";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_deleteAll.Location = new System.Drawing.Point(564, 15);
+            this.btn_deleteAll.Name = "btn_deleteAll";
+            this.btn_deleteAll.Size = new System.Drawing.Size(82, 23);
+            this.btn_deleteAll.TabIndex = 33;
+            this.btn_deleteAll.Text = "전체 삭제";
+            this.btn_deleteAll.UseVisualStyleBackColor = true;
             // 
             // list_copy
             // 
@@ -96,7 +96,7 @@
             this.list_copy.HideSelection = false;
             this.list_copy.Location = new System.Drawing.Point(12, 51);
             this.list_copy.Name = "list_copy";
-            this.list_copy.Size = new System.Drawing.Size(634, 205);
+            this.list_copy.Size = new System.Drawing.Size(634, 187);
             this.list_copy.TabIndex = 34;
             this.list_copy.UseCompatibleStateImageBehavior = false;
             this.list_copy.View = System.Windows.Forms.View.Details;
@@ -108,41 +108,41 @@
             this.tb_category.Size = new System.Drawing.Size(87, 21);
             this.tb_category.TabIndex = 35;
             // 
-            // button1
+            // btn_delete
             // 
-            this.button1.Location = new System.Drawing.Point(476, 263);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 23);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "선택 삭제";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_delete.Location = new System.Drawing.Point(474, 246);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(82, 23);
+            this.btn_delete.TabIndex = 36;
+            this.btn_delete.Text = "선택 삭제";
+            this.btn_delete.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btn_extend
             // 
-            this.button3.Location = new System.Drawing.Point(564, 263);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(82, 23);
-            this.button3.TabIndex = 37;
-            this.button3.Text = "대출 연장";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_extend.Location = new System.Drawing.Point(564, 246);
+            this.btn_extend.Name = "btn_extend";
+            this.btn_extend.Size = new System.Drawing.Size(82, 23);
+            this.btn_extend.TabIndex = 37;
+            this.btn_extend.Text = "대출 연장";
+            this.btn_extend.UseVisualStyleBackColor = true;
             // 
             // BookDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(658, 295);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(659, 280);
+            this.Controls.Add(this.btn_extend);
+            this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.tb_category);
             this.Controls.Add(this.list_copy);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_deleteAll);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tb_author);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tb_title);
             this.Controls.Add(this.label1);
             this.Name = "BookDetailForm";
-            this.Text = "상세정보";
+            this.Text = "도서 상세 정보";
             this.Load += new System.EventHandler(this.BookDetailForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -155,10 +155,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tb_title;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_deleteAll;
         private System.Windows.Forms.ListView list_copy;
         private System.Windows.Forms.TextBox tb_category;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_delete;
+        private System.Windows.Forms.Button btn_extend;
     }
 }

@@ -16,7 +16,7 @@ namespace Management_Books
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainFoam());
+            Application.Run(new MainForm());
         }
     }
 }
