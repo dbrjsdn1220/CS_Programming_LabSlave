@@ -1,77 +1,109 @@
 ﻿using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Management_Books.repository.member
+namespace Management_Books.repository.book
 {
-	class MemberRepository : CommonRepository
+	class BookRepository : CommonRepository
 	{
 		private MySqlConnection conn;
 		private MySqlCommand cmd;
 		private MySqlDataReader reader;
 
-		public MemberRepository()
+		public BookRepository()
 		{
 			conn = GetConnection(); conn.Open();
 		}
 
-		public string Insert(MemberEntity member)
+		public long Insert(BookEntity book)
 		{
-			string query = "INSERT INTO members(member_id, member_pwd) VALUES(@member_id, @member_pwd)";
+			string query = "INSERT INTO books(id, title, author, category) VALUES(@id, @title, @author, @category)";
 			try
 			{
 				cmd = GetCommand(query, conn);
 				cmd.Parameters.Clear();
-				cmd.Parameters.AddWithValue("@member_id", member.getId());
-				cmd.Parameters.AddWithValue("@member_pwd", member.getPwd());
+				cmd.Parameters.AddWithValue("@id", book.getId());
+				cmd.Parameters.AddWithValue("@title", book.getTitle());
+				cmd.Parameters.AddWithValue("@author", book.getAuthor());
+				cmd.Parameters.AddWithValue("@category", book.getCategory());
 				cmd.ExecuteNonQuery();
 
-				return member.getId();
+				return book.getId();
 			}
 			catch (MySqlException e)
 			{
-				Console.WriteLine("[MemberRepository.cs / Insert / error : " + e.Message + "]");
+				Console.WriteLine("[BookRepository.cs / Insert / error : " + e.Message + "]");
 			}
 			finally
 			{
 				ReaderClose();
 				CommandClose();
 			}
-			return new MemberBuilder().build().getId();
+			return new BookBuilder().build().getId();
 		}
 
-		public MemberEntity Select(MemberEntity member)
+		public List<BookEntity> SelectTitle(string title)
 		{
-			string query = "SELECT * FROM members WHERE member_id = @member_id";
+			string query = "SELECT * FROM books WHERE title LIKE @title";
+			List<BookEntity> books = new List<BookEntity>();
 			try
 			{
 				cmd = GetCommand(query, conn);
 				cmd.Parameters.Clear();
-				cmd.Parameters.AddWithValue("@member_id", member.getId());
+				cmd.Parameters.AddWithValue("@title", "%" + title + "%");
 				reader = cmd.ExecuteReader();
 
+				while (reader.Read())
+				{
+					books.Add(new BookBuilder()
+								.id(reader.GetInt64(0))
+								.author(reader.GetString(1))
+								.title(reader.GetString(2))
+								.category(reader.GetString(3))
+								.build());
+				}
+				return books;
+			}
+			catch (MySqlException e)
+			{
+				Console.WriteLine("[BookRepository.cs / SelectTitle / error : " + e.Message + "]");
+			}
+			finally
+			{
+				ReaderClose();
+				CommandClose();
+			}
+			return books;
+		}
+
+		public long GetCount()
+		{
+			string query = "SELECT COUNT(id) FROM books";
+			try
+			{
+				cmd = GetCommand(query, conn);
+				cmd.Parameters.Clear();
+				reader = cmd.ExecuteReader();
+				
 				if (reader.Read())
 				{
-					return new MemberBuilder()
-								.id(reader.GetString(0))
-								.pwd(reader.GetString(1))
-								.build();
+					return reader.GetInt64(0);
 				}
 			}
 			catch (MySqlException e)
 			{
-				Console.WriteLine("[MemberRepository.cs / Select / error : " + e.Message + "]");
+				Console.WriteLine("[BookRepository.cs / GetCount / error : " + e.Message + "]");
 			}
 			finally
 			{
 				ReaderClose();
 				CommandClose();
 			}
-			return new MemberBuilder().build();
+			return -1;
 		}
 
 		public void ReaderClose()

@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|c:\\users\\lg\\documents\\github\\cs_programming_labslave\\management books\\repository\\member\\memberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\repository\\member\\memberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|c:\\users\\lg\\documents\\github\\cs_programming_labslave\\management books\\managefoam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\managefoam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\management books\\repository\\member\\memberbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\repository\\member\\memberbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|c:\\users\\lg\\documents\\github\\cs_programming_labslave\\management books\\loginfoam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\loginfoam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\management books\\loginfoam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|c:\\users\\lg\\documents\\github\\cs_programming_labslave\\management books\\loginfoam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\loginfoam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\management books\\loginfoam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\loginfoam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|c:\\users\\lg\\documents\\github\\cs_programming_labslave\\management books\\managefoam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\managefoam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,32 +26,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MemberRepository.cs",
-              "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\repository\\member\\MemberRepository.cs",
-              "RelativeDocumentMoniker": "Management Books\\repository\\member\\MemberRepository.cs",
-              "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\repository\\member\\MemberRepository.cs",
-              "RelativeToolTip": "Management Books\\repository\\member\\MemberRepository.cs",
-              "ViewState": "AQIAAEoAAAAAAAAAAAAkwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T15:55:34.85Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "LoginFoam.cs",
               "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\LoginFoam.cs",
               "RelativeDocumentMoniker": "Management Books\\LoginFoam.cs",
               "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\LoginFoam.cs",
               "RelativeToolTip": "Management Books\\LoginFoam.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADMAAAAdAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAowB8AAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T15:36:12.25Z"
+              "WhenOpened": "2024-05-21T23:35:49.883Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -62,19 +50,33 @@
               "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\LoginFoam.cs [\uB514\uC790\uC778]",
               "RelativeToolTip": "Management Books\\LoginFoam.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T15:36:10.678Z"
+              "WhenOpened": "2024-05-21T23:35:48.276Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MemberBuilder.cs",
-              "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\repository\\member\\MemberBuilder.cs",
-              "RelativeDocumentMoniker": "Management Books\\repository\\member\\MemberBuilder.cs",
-              "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\repository\\member\\MemberBuilder.cs",
-              "RelativeToolTip": "Management Books\\repository\\member\\MemberBuilder.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "ManageFoam.cs",
+              "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\ManageFoam.cs",
+              "RelativeDocumentMoniker": "Management Books\\ManageFoam.cs",
+              "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\ManageFoam.cs",
+              "RelativeToolTip": "Management Books\\ManageFoam.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAywCsAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T15:33:33.061Z"
+              "WhenOpened": "2024-05-21T23:34:28.329Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ManageFoam.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\ManageFoam.cs",
+              "RelativeDocumentMoniker": "Management Books\\ManageFoam.cs",
+              "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\ManageFoam.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "Management Books\\ManageFoam.cs [\uB514\uC790\uC778]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T23:34:23.211Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
             }
           ]
         }

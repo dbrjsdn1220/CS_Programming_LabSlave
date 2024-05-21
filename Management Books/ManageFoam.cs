@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Management_Books.repository.book;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,10 +42,11 @@ namespace Management_Books
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            // 검색 알고리즘
-        }
+			// 검색 알고리즘
 
-        private void list_book_ColumnClick(object sender, ColumnClickEventArgs e)
+		}
+
+		private void list_book_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             // 이게 특정 컬럼 클릭할 때 실행되는 기능인지 모르겠네;
             BookDetailForm subForm = new BookDetailForm();
