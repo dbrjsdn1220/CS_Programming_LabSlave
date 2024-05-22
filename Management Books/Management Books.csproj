@@ -130,6 +130,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="repository\bookCopie\BookCopieBuilder.cs" />
+    <Compile Include="repository\bookCopie\BookCopieEntity.cs" />
+    <Compile Include="repository\bookCopie\BookCopieRepository.cs" />
     <Compile Include="repository\book\BookBuilder.cs" />
     <Compile Include="repository\book\BookEntity.cs" />
     <Compile Include="repository\book\BookRepository.cs" />
@@ -144,6 +147,7 @@
     <Compile Include="SearchFoam.Designer.cs">
       <DependentUpon>SearchFoam.cs</DependentUpon>
     </Compile>
+    <Compile Include="service\BookService.cs" />
     <Compile Include="service\MemberService.cs" />
     <EmbeddedResource Include="BookDetailForm.resx">
       <DependentUpon>BookDetailForm.cs</DependentUpon>
@@ -186,5 +190,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

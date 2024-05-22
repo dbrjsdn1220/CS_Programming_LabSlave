@@ -9,12 +9,12 @@ namespace Management_Books.repository
 {
 	class CommonRepository : Database_Info
 	{
-		public MySqlConnection GetConnection()
+		protected MySqlConnection GetConnection()
 		{
 			return new MySqlConnection(GetConnectionString());
 		}
 
-		public MySqlCommand GetCommand(string query, MySqlConnection connection)
+		protected MySqlCommand GetCommand(string query, MySqlConnection connection)
 		{
 			return new MySqlCommand(query, connection);
 		}

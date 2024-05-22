@@ -46,6 +46,39 @@ namespace Management_Books.repository.book
 			return new BookBuilder().build().getId();
 		}
 
+		public List<BookEntity> GetBooks()
+		{
+			string query = "SELECT * FROM books";
+			List<BookEntity> bookList = new List<BookEntity>();
+			try
+			{
+				cmd = GetCommand(query, conn);
+				cmd.Parameters.Clear();
+				reader = cmd.ExecuteReader();
+
+				while (reader.Read())
+				{
+					bookList.Add(new BookBuilder()
+								.id(reader.GetInt64(0))
+								.author(reader.GetString(1))
+								.title(reader.GetString(2))
+								.category(reader.GetString(3))
+								.build());
+				}
+				return bookList;
+			}
+			catch (MySqlException e)
+			{
+				Console.WriteLine("[BookRepository.cs / GetBooks / error : " + e.Message + "]");
+			}
+			finally
+			{
+				ReaderClose();
+				CommandClose();
+			}
+			return bookList;
+		}
+
 		public List<BookEntity> SelectTitle(string title)
 		{
 			string query = "SELECT * FROM books WHERE title LIKE @title";

@@ -13,7 +13,7 @@ namespace Management_Books.repository
 		private const string DB_ID = "root";
 		private const string DB_PASSWORD = "1234";
 
-		public string GetConnectionString()
+		protected string GetConnectionString()
 		{
 			return "Server=" + DB_SERVER_ID + ";Database=" + DB_NAME + ";Uid=" + DB_ID + ";Pwd=" + DB_PASSWORD + ";";
 		}
