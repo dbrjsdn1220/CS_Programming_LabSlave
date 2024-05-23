@@ -1,6 +1,6 @@
 ﻿namespace Management_Books
 {
-    partial class MainForm
+    partial class MainFoam
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -46,7 +46,7 @@
             // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(34, 93);
+            this.btn_search.Location = new System.Drawing.Point(34, 96);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(75, 23);
             this.btn_search.TabIndex = 1;
@@ -56,7 +56,7 @@
             // 
             // btn_borrow
             // 
-            this.btn_borrow.Location = new System.Drawing.Point(196, 93);
+            this.btn_borrow.Location = new System.Drawing.Point(196, 96);
             this.btn_borrow.Name = "btn_borrow";
             this.btn_borrow.Size = new System.Drawing.Size(75, 23);
             this.btn_borrow.TabIndex = 2;
@@ -66,7 +66,7 @@
             // 
             // btn_manage
             // 
-            this.btn_manage.Location = new System.Drawing.Point(115, 93);
+            this.btn_manage.Location = new System.Drawing.Point(115, 96);
             this.btn_manage.Name = "btn_manage";
             this.btn_manage.Size = new System.Drawing.Size(75, 23);
             this.btn_manage.TabIndex = 3;
@@ -78,7 +78,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(311, 135);
+            this.ClientSize = new System.Drawing.Size(311, 143);
             this.Controls.Add(this.btn_manage);
             this.Controls.Add(this.btn_borrow);
             this.Controls.Add(this.btn_search);

@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.tb_title = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tb_quantity = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tb_author = new System.Windows.Forms.TextBox();
@@ -43,7 +44,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 51);
+            this.label1.Location = new System.Drawing.Point(33, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 0;
@@ -51,14 +52,24 @@
             // 
             // tb_title
             // 
-            this.tb_title.Location = new System.Drawing.Point(60, 47);
+            this.tb_title.Location = new System.Drawing.Point(68, 108);
             this.tb_title.Name = "tb_title";
             this.tb_title.Size = new System.Drawing.Size(121, 21);
             this.tb_title.TabIndex = 1;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("돋움", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(22, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(182, 37);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "도서 추가";
+            // 
             // tb_quantity
             // 
-            this.tb_quantity.Location = new System.Drawing.Point(60, 101);
+            this.tb_quantity.Location = new System.Drawing.Point(68, 162);
             this.tb_quantity.Name = "tb_quantity";
             this.tb_quantity.Size = new System.Drawing.Size(121, 21);
             this.tb_quantity.TabIndex = 19;
@@ -66,7 +77,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 105);
+            this.label3.Location = new System.Drawing.Point(33, 166);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 18;
@@ -74,7 +85,7 @@
             // 
             // tb_author
             // 
-            this.tb_author.Location = new System.Drawing.Point(60, 74);
+            this.tb_author.Location = new System.Drawing.Point(68, 135);
             this.tb_author.Name = "tb_author";
             this.tb_author.Size = new System.Drawing.Size(121, 21);
             this.tb_author.TabIndex = 21;
@@ -82,7 +93,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 78);
+            this.label4.Location = new System.Drawing.Point(33, 139);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 20;
@@ -91,7 +102,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 24);
+            this.label5.Location = new System.Drawing.Point(33, 85);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 12);
             this.label5.TabIndex = 22;
@@ -100,7 +111,7 @@
             // cb_category
             // 
             this.cb_category.FormattingEnabled = true;
-            this.cb_category.Location = new System.Drawing.Point(60, 21);
+            this.cb_category.Location = new System.Drawing.Point(68, 82);
             this.cb_category.Name = "cb_category";
             this.cb_category.Size = new System.Drawing.Size(121, 20);
             this.cb_category.TabIndex = 23;
@@ -108,7 +119,7 @@
             // btn_insert
             // 
             this.btn_insert.BackColor = System.Drawing.Color.Gold;
-            this.btn_insert.Location = new System.Drawing.Point(111, 142);
+            this.btn_insert.Location = new System.Drawing.Point(119, 196);
             this.btn_insert.Name = "btn_insert";
             this.btn_insert.Size = new System.Drawing.Size(70, 23);
             this.btn_insert.TabIndex = 24;
@@ -119,8 +130,8 @@
             // btn_reset
             // 
             this.btn_reset.BackColor = System.Drawing.Color.LightGray;
-            this.btn_reset.Location = new System.Drawing.Point(27, 142);
-            this.btn_reset.Name = "btn_reset";
+            this.btn_reset.Location = new System.Drawing.Point(35, 196);
+            this.btn_reset.Name = "button1";
             this.btn_reset.Size = new System.Drawing.Size(70, 23);
             this.btn_reset.TabIndex = 25;
             this.btn_reset.Text = "초기화";
@@ -131,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(210, 178);
+            this.ClientSize = new System.Drawing.Size(225, 234);
             this.Controls.Add(this.btn_reset);
             this.Controls.Add(this.btn_insert);
             this.Controls.Add(this.cb_category);
@@ -140,10 +151,11 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tb_quantity);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.tb_title);
             this.Controls.Add(this.label1);
             this.Name = "InsertForm";
-            this.Text = "도서 추가";
+            this.Text = "InsertForm";
             this.Load += new System.EventHandler(this.InsertForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -154,6 +166,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tb_title;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_quantity;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tb_author;

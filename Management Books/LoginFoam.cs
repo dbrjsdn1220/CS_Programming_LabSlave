@@ -14,11 +14,11 @@ using System.Xml.Linq;
 
 namespace Management_Books
 {
-    public partial class LoginForm : Form
+    public partial class LoginFoam : Form
     {
 		private MemberService memberService;
 
-        public LoginForm()
+        public LoginFoam()
         {
             InitializeComponent();
 			memberService = new MemberService();
@@ -58,7 +58,7 @@ namespace Management_Books
 				{
 					MessageBox.Show("로그인 성공!");
 					this.Visible = false;
-					ManageForm subFoam = new ManageForm(member.getId());
+					ManageFoam subFoam = new ManageFoam(member.getId());
 					subFoam.ShowDialog();
 					this.Close();
 				}
