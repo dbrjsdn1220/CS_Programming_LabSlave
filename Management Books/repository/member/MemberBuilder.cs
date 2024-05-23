@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace Management_Books.repository.member
 {
-	internal class MemberBuilder
+	class MemberBuilder
 	{
 		private string Id;
 		private string Pwd;
 
-		public MemberBuilder id(string id)
+		public MemberBuilder id(string Id)
 		{
-			this.Id = id;
+			this.Id = Id;
 			return this;
 		}
 
-		public MemberBuilder pwd(string pwd)
+		public MemberBuilder pwd(string Pwd)
 		{
-			this.Pwd = pwd;
+			this.Pwd = Pwd;
 			return this;
 		}
 

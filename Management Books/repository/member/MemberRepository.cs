@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,33 +19,62 @@ namespace Management_Books.repository.member
 			conn = GetConnection(); conn.Open();
 		}
 
+		public string Insert(MemberEntity member)
+		{
+			string query = "INSERT INTO members(member_id, member_pwd) VALUES(@member_id, @member_pwd)";
+			try
+			{
+				cmd = GetCommand(query, conn);
+				cmd.Parameters.Clear();
+				cmd.Parameters.AddWithValue("@member_id", member.getId());
+				cmd.Parameters.AddWithValue("@member_pwd", member.getPwd());
+				cmd.ExecuteNonQuery();
+
+				return member.getId();
+			}
+			catch (MySqlException e)
+			{
+				Console.WriteLine("[MemberRepository.cs / Insert / error : " + e.Message + "]");
+			}
+			finally
+			{
+				ReaderClose();
+				CommandClose();
+			}
+			return new MemberBuilder().build().getId();
+		}
+
 		public MemberEntity Select(MemberEntity member)
 		{
 			string query = "SELECT * FROM members WHERE member_id = @member_id";
-			cmd = GetCommand(query, conn);
-			cmd.Parameters.AddWithValue("@member_id", member.getId());
-			reader = cmd.ExecuteReader();
 			try
 			{
+				cmd = GetCommand(query, conn);
+				cmd.Parameters.Clear();
+				cmd.Parameters.AddWithValue("@member_id", member.getId());
+				reader = cmd.ExecuteReader();
+
 				if (reader.Read())
 				{
 					return new MemberBuilder()
 								.id(reader.GetString(0))
 								.pwd(reader.GetString(1))
-								.build();			
+								.build();
 				}
-			} 
-			catch (MySqlException e)	// 조회 실패
+			}
+			catch (MySqlException e)
 			{
-				Console.WriteLine(e.Message);
-			} finally
+				Console.WriteLine("[MemberRepository.cs / Select / error : " + e.Message + "]");
+			}
+			finally
 			{
-				ConnectionClose();
+				ReaderClose();
+				CommandClose();
 			}
 			return new MemberBuilder().build();
 		}
 
-		private void ConnectionClose()
+		public void ReaderClose()
 		{
 			try
 			{
@@ -53,9 +83,9 @@ namespace Management_Books.repository.member
 					reader.Close();
 				}
 			}
-			catch (MySqlException ex)
+			catch (MySqlException e)
 			{
-				Console.WriteLine("\n\nreader closing error : " + ex.Message + "\n\n");
+				Console.WriteLine("\n\nreader closing error : " + e.Message + "\n\n");
 			}
 			finally
 			{
@@ -64,7 +94,10 @@ namespace Management_Books.repository.member
 					reader.Dispose();
 				}
 			}
+		}
 
+		public void CommandClose()
+		{
 			try
 			{
 				if (cmd != null)
@@ -72,10 +105,14 @@ namespace Management_Books.repository.member
 					cmd.Dispose();
 				}
 			}
-			catch (MySqlException ex)
+			catch (MySqlException e)
 			{
-				Console.WriteLine("\n\ncommand disposing error : " + ex.Message + "\n\n");
+				Console.WriteLine("\n\ncommand disposing error : " + e.Message + "\n\n");
 			}
+		}
+
+		public void ConnectionClose()
+		{
 			try
 			{
 				if (conn != null)
@@ -83,9 +120,9 @@ namespace Management_Books.repository.member
 					conn.Close();
 				}
 			}
-			catch (MySqlException ex)
+			catch (MySqlException e)
 			{
-				Console.WriteLine("\n\nconnection closing error : " + ex.Message + "\n\n");
+				Console.WriteLine("\n\nconnection closing  error : " + e.Message + "\n\n");
 			}
 			finally
 			{
@@ -94,6 +131,13 @@ namespace Management_Books.repository.member
 					conn.Dispose();
 				}
 			}
+		}
+
+		public void AllClose()
+		{
+			ReaderClose();
+			CommandClose();
+			ConnectionClose();
 		}
 	}
 }

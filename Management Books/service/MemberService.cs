@@ -15,7 +15,7 @@ namespace Management_Books.service
 		{
 			memberRepository = new MemberRepository();
 		}
-		
+
 		public int Login(MemberEntity member)
 		{
 			MemberEntity result = memberRepository.Select(member);
@@ -23,6 +23,7 @@ namespace Management_Books.service
 			{
 				if (member.getPwd().Equals(result.getPwd()))
 				{
+					memberRepository.AllClose();
 					return 2;
 				}
 				return 1;

@@ -6,30 +6,19 @@ using System.Threading.Tasks;
 
 namespace Management_Books.repository.member
 {
-	internal class MemberEntity
+	class MemberEntity
 	{
-		private string id { get; }
-		private string pwd { get; }
-		
+		private string id;
+		private string pwd;
+
 		public MemberEntity(string id, string pwd)
 		{
 			this.id = id;
 			this.pwd = pwd;
 		}
 
-		public string getId()
-		{
-			return id;
-		}
+		public string getId() { return id; }
 
-		public string getPwd()
-		{
-			return pwd;
-		}
-
-		public string toString()
-		{
-			return "[id : " + id + ", pwd : " + pwd + "]";
-		}
+		public string getPwd() { return pwd; }
 	}
 }

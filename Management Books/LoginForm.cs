@@ -6,19 +6,17 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace Management_Books
 {
-    public partial class LoginForm : Form
+    public partial class LoginFoam : Form
     {
 		private MemberService memberService;
 
-        public LoginForm()
+        public LoginFoam()
         {
             InitializeComponent();
 			memberService = new MemberService();
@@ -38,39 +36,21 @@ namespace Management_Books
 
             // 로그인 성공 시, (임시로 else해 둠)
             // name 변수에 로그인 성공한 사람 이름 넣는 걸로 수정 or 변수 없이 바로 파라미터로
-			else
-			{
-				MemberEntity member = new MemberBuilder()
-											.id(tb_id.Text)
-											.pwd(tb_pwd.Text)
-											.build();
-				MessageBox.Show(member.toString());
-				int result = memberService.Login(member);
-				if (result == 0)
-				{
-					MessageBox.Show("존재하지 않는 회원입니다.");
-				}
-				else if (result == 1)
-				{
-					MessageBox.Show("잘못된 비밀번호 입니다.");
-				}
-				else if (result == 2)
-				{
-					MessageBox.Show("로그인 성공!");
-					this.Visible = false;
-					ManageForm subFoam = new ManageForm(member.getId());
-					subFoam.ShowDialog();
-					this.Close();
-				}
-			}
-            /*else
+            else
             {
-                string name = "유건우";
+				int result = memberService.Login(new MemberBuilder()
+														.id(tb_id.Text)
+														.pwd(tb_pwd.Text)
+														.build());
+				if (result != 2) {
+					MessageBox.Show((result == 1) ? "비밀번호가 잘못 되었습니다." : "존재하지 않는 계정입니다.");
+					return;
+				}
                 this.Visible = false;
-                ManageFoam subFoam = new ManageFoam(name);
+                ManageFoam subFoam = new ManageFoam(tb_id.Text);
                 subFoam.ShowDialog();
                 this.Close();
-            }*/
+            }
         }
     }
 }
