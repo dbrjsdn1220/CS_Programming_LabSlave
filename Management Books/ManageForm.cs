@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace Management_Books
 {
-	public partial class ManageFoam : Form
+	public partial class ManageForm : Form
 	{
 		string admin;
 		private BookEntity book;
 		private BookService bookService;
 
-		public ManageFoam(string name)
+		public ManageForm(string name)
 		{
 			InitializeComponent();
 			admin = name;

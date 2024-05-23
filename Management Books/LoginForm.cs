@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace Management_Books
 {
-    public partial class LoginFoam : Form
+    public partial class LoginForm : Form
     {
 		private MemberService memberService;
 
-        public LoginFoam()
+        public LoginForm()
         {
             InitializeComponent();
 			memberService = new MemberService();
@@ -47,7 +47,7 @@ namespace Management_Books
 					return;
 				}
                 this.Visible = false;
-                ManageFoam subFoam = new ManageFoam(tb_id.Text);
+                ManageForm subFoam = new ManageForm(tb_id.Text);
                 subFoam.ShowDialog();
                 this.Close();
             }

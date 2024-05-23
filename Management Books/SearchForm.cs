@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace Management_Books
 {
-    public partial class SearchFoam : Form
+    public partial class SearchForm : Form
     {
         private BookService bookService;
 
-        public SearchFoam()
+        public SearchForm()
         {
             InitializeComponent();
             bookService = new BookService();
