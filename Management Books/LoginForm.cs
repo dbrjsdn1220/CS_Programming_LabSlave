@@ -6,17 +6,19 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Management_Books
 {
-    public partial class LoginFoam : Form
+    public partial class LoginForm : Form
     {
 		private MemberService memberService;
 
-        public LoginFoam()
+        public LoginForm()
         {
             InitializeComponent();
 			memberService = new MemberService();
@@ -36,7 +38,32 @@ namespace Management_Books
 
             // 로그인 성공 시, (임시로 else해 둠)
             // name 변수에 로그인 성공한 사람 이름 넣는 걸로 수정 or 변수 없이 바로 파라미터로
-            else
+			else
+			{
+				MemberEntity member = new MemberBuilder()
+											.id(tb_id.Text)
+											.pwd(tb_pwd.Text)
+											.build();
+				MessageBox.Show(member.toString());
+				int result = memberService.Login(member);
+				if (result == 0)
+				{
+					MessageBox.Show("존재하지 않는 회원입니다.");
+				}
+				else if (result == 1)
+				{
+					MessageBox.Show("잘못된 비밀번호 입니다.");
+				}
+				else if (result == 2)
+				{
+					MessageBox.Show("로그인 성공!");
+					this.Visible = false;
+					ManageForm subFoam = new ManageForm(member.getId());
+					subFoam.ShowDialog();
+					this.Close();
+				}
+			}
+            /*else
             {
 				int result = memberService.Login(new MemberBuilder()
 														.id(tb_id.Text)
@@ -50,7 +77,7 @@ namespace Management_Books
                 ManageFoam subFoam = new ManageFoam(tb_id.Text);
                 subFoam.ShowDialog();
                 this.Close();
-            }
+            }*/
         }
     }
 }
