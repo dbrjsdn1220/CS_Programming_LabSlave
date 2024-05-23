@@ -53,6 +53,7 @@
             // 
             this.tb_author.Location = new System.Drawing.Point(431, 16);
             this.tb_author.Name = "tb_author";
+            this.tb_author.ReadOnly = true;
             this.tb_author.Size = new System.Drawing.Size(112, 21);
             this.tb_author.TabIndex = 29;
             // 
@@ -69,6 +70,7 @@
             // 
             this.tb_title.Location = new System.Drawing.Point(202, 16);
             this.tb_title.Name = "tb_title";
+            this.tb_title.ReadOnly = true;
             this.tb_title.Size = new System.Drawing.Size(166, 21);
             this.tb_title.TabIndex = 25;
             // 
@@ -105,6 +107,7 @@
             // 
             this.tb_category.Location = new System.Drawing.Point(53, 15);
             this.tb_category.Name = "tb_category";
+            this.tb_category.ReadOnly = true;
             this.tb_category.Size = new System.Drawing.Size(87, 21);
             this.tb_category.TabIndex = 35;
             // 

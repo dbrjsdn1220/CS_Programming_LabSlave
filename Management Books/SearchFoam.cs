@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Management_Books.repository.book;
+using Management_Books.service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,12 @@ namespace Management_Books
 {
     public partial class SearchFoam : Form
     {
+        private BookService bookService;
+
         public SearchFoam()
         {
             InitializeComponent();
+            bookService = new BookService();
         }
 
         private void SearchFoam_Load(object sender, EventArgs e)
@@ -29,18 +34,34 @@ namespace Management_Books
             cb_category.Items.Add("저자");
             cb_category.SelectedIndex = 0;
 
-            // Books 테이블 읽어와서 list_book 리스트뷰에 추가
-            // 잔권: Copies 테이블에 동일한 book_id에서 available = 1인 id 몇 개인지 세는 로직 알잘딱
+            List<BookEntity> bookList = bookService.GetAllBooks();
+            list_book_print(bookList);
         }
+        private void list_book_print(List<BookEntity> bookList)
+        {
+            list_book.Items.Clear();
+            ListViewItem item;
 
+            foreach (BookEntity book in bookList)
+            {
+                item = new ListViewItem(book.getCategory());
+                item.SubItems.Add(book.getTitle());
+                item.SubItems.Add(book.getAuthor());
+                item.SubItems.Add(book.getCopyCount().ToString());
+                item.SubItems.Add("[ + ]");
+                item.SubItems.Add("[ - ]");
+                list_book.Items.Add(item);
+            }
+        }
         private void btn_search_Click(object sender, EventArgs e)
         {
-            //검색 시, cb_category 콤보박스에서 선택된 속성으로 tb_search.Text가 포함된 것 찾아 출력
-        }
+            if (String.IsNullOrWhiteSpace(tb_search.Text))  // 문자열이 null이거나 빈 문자열 또는 공백 문자열일 경우
+            {
+                MessageBox.Show("검색어를 입력 해주세요."); return;
+            }
 
-        private void SearchFoam_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //SQL 연결 종료
+            List<BookEntity> bookList = bookService.SearchOption(cb_category.Text, tb_search.Text);
+            list_book_print(bookList);
         }
     }
 }

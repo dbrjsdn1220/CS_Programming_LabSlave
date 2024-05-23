@@ -65,15 +65,6 @@ namespace Management_Books
 			List<BookEntity> bookList = bookService.SearchOption(cb_category.Text, tb_search.Text);
 			list_book_print(bookList);
 		}
-
-		private void list_book_ColumnClick(object sender, ColumnClickEventArgs e)
-		{
-			// 이게 특정 컬럼 클릭할 때 실행되는 기능인지 모르겠네;
-			/*BookDetailForm subForm = new BookDetailForm();
-			subForm.ShowDialog();*/
-
-		}
-
 		/**
 		 * 단순 list 출력용 method
 		 */
@@ -103,5 +94,14 @@ namespace Management_Books
 						.copyCount(copyCount)
 						.build();
 		}
+
+		private void list_book_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+            List<BookEntity> bookList = bookService.GetAllBooks();
+            int selectRow = list_book.SelectedItems[0].Index;
+			long selectID = bookList[selectRow].getId();
+            BookDetailForm subFrom = new BookDetailForm(selectID);
+            subFrom.ShowDialog();
+        }
 	}
 }

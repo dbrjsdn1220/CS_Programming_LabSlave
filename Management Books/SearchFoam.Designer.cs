@@ -97,7 +97,6 @@
             this.Controls.Add(this.label1);
             this.Name = "SearchFoam";
             this.Text = "도서 목록 조회";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SearchFoam_FormClosed);
             this.Load += new System.EventHandler(this.SearchFoam_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -46,6 +46,7 @@
             // 
             // list_book
             // 
+            this.list_book.FullRowSelect = true;
             this.list_book.GridLines = true;
             this.list_book.HideSelection = false;
             this.list_book.Location = new System.Drawing.Point(12, 112);
@@ -54,7 +55,7 @@
             this.list_book.TabIndex = 19;
             this.list_book.UseCompatibleStateImageBehavior = false;
             this.list_book.View = System.Windows.Forms.View.Details;
-            this.list_book.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.list_book_ColumnClick);
+            this.list_book.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.list_book_MouseDoubleClick);
             // 
             // btn_search
             // 
