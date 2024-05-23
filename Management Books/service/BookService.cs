@@ -16,14 +16,27 @@ namespace Management_Books.service
 			bookRepository = new BookRepository();
 		}
 
-		public List<BookEntity> Start()
+		public List<BookEntity> GetAllBooks()
 		{
-			return bookRepository.GetBooks();
+			return bookRepository.GetAllData();
 		}
 
-		public List<BookEntity> searchTitle(string title)
+		public bool AddBook(BookEntity book)
 		{
-			return bookRepository.SelectTitle(title);
+			return bookRepository.Insert(book);
+		}
+
+		public List<BookEntity> SearchOption(string option, string value)
+		{
+			switch (option)
+			{
+				case "제목":
+					return bookRepository.SelectTitle(value);
+				case "저자":
+					return bookRepository.SelectAuthor(value);
+				default:
+					return new List<BookEntity>();
+			}
 		}
 
 	}

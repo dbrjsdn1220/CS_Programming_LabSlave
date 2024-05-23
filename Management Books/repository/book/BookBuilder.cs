@@ -12,6 +12,7 @@ namespace Management_Books.repository.book
 		private string Title;
 		private string Author;
 		private string Category;
+		private int CopyCount;
 
 		public BookBuilder id(long Id)
 		{
@@ -37,9 +38,15 @@ namespace Management_Books.repository.book
 			return this;
 		}
 
+		public BookBuilder copyCount(int CopyCount)
+		{
+			this.CopyCount = CopyCount;
+			return this;
+		}
+
 		public BookEntity build()
 		{
-			return new BookEntity(Id, Title, Author, Category);
+			return new BookEntity(Id, Title, Author, Category, CopyCount);
 		}
 	}
 }

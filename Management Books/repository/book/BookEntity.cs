@@ -12,33 +12,25 @@ namespace Management_Books.repository.book
 		private string title;
 		private string author;
 		private string category;
+		private int copyCount;
 
-		public BookEntity(long id, string title, string author, string category)
+		public BookEntity(long id, string title, string author, string category, int copyCount)
 		{
 			this.id = id;
 			this.title = title;
 			this.author = author;
 			this.category = category;
+			this.copyCount = copyCount;
 		}
 
-		public long getId()
-		{
-			return id;
-		}
+		public long getId() { return id; }
 
-		public string getTitle()
-		{
-			return title;
-		}
+		public string getTitle() { return title; }
 
-		public string getAuthor()
-		{
-			return author;
-		}
+		public string getAuthor() { return author; }
 
-		public string getCategory()
-		{
-			return category;
-		}
+		public string getCategory() { return category; }
+
+		public int getCopyCount() {  return copyCount; }
 	}
 }

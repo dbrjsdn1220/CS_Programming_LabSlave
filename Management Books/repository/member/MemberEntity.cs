@@ -17,14 +17,8 @@ namespace Management_Books.repository.member
 			this.pwd = pwd;
 		}
 
-		public string getId()
-		{
-			return id;
-		}
+		public string getId() { return id; }
 
-		public string getPwd()
-		{
-			return pwd;
-		}
+		public string getPwd() { return pwd; }
 	}
 }
