@@ -37,6 +37,18 @@ namespace Management_Books
             List<BookEntity> bookList = bookService.GetAllBooks();
             list_book_print(bookList);
         }
+		
+		private void btn_search_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(tb_search.Text))  // 문자열이 null이거나 빈 문자열 또는 공백 문자열일 경우
+            {
+                MessageBox.Show("검색어를 입력 해주세요."); return;
+            }
+
+            List<BookEntity> bookList = bookService.SearchOption(cb_category.Text, tb_search.Text);
+            list_book_print(bookList);
+        }
+
         private void list_book_print(List<BookEntity> bookList)
         {
             list_book.Items.Clear();
@@ -48,20 +60,17 @@ namespace Management_Books
                 item.SubItems.Add(book.getTitle());
                 item.SubItems.Add(book.getAuthor());
                 item.SubItems.Add(book.getCopyCount().ToString());
-                item.SubItems.Add("[ + ]");
-                item.SubItems.Add("[ - ]");
                 list_book.Items.Add(item);
             }
         }
-        private void btn_search_Click(object sender, EventArgs e)
-        {
-            if (String.IsNullOrWhiteSpace(tb_search.Text))  // 문자열이 null이거나 빈 문자열 또는 공백 문자열일 경우
-            {
-                MessageBox.Show("검색어를 입력 해주세요."); return;
-            }
 
-            List<BookEntity> bookList = bookService.SearchOption(cb_category.Text, tb_search.Text);
-            list_book_print(bookList);
-        }
-    }
+		private void list_book_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			List<BookEntity> bookList = bookService.GetAllBooks();
+			int selectRow = list_book.SelectedItems[0].Index;
+			long selectID = bookList[selectRow].getId();
+			BookDetailForm_user subFrom = new BookDetailForm_user(selectID);
+			subFrom.ShowDialog();
+		}
+	}
 }

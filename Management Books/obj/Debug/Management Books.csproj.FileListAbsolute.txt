@@ -51,11 +51,7 @@ C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\bin\Debug\
 C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management Books.csproj.AssemblyReference.cache
 C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.BookDetailForm.resources
 C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.InsertForm.resources
-C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.ManageFoam.resources
-C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.LoginFoam.resources
-C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.MainFoam.resources
 C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.Properties.Resources.resources
-C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.SearchFoam.resources
 C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management Books.csproj.GenerateResource.cache
 C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management Books.csproj.CoreCompileInputs.cache
 C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Manageme.267DB722.Up2Date
@@ -158,3 +154,9 @@ C:\Users\dbrjs\OneDrive\문서\GitHub\CS_Programming_LabSlave\Management Books\o
 C:\Users\dbrjs\OneDrive\문서\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management Books.csproj.CopyComplete
 C:\Users\dbrjs\OneDrive\문서\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management Books.exe
 C:\Users\dbrjs\OneDrive\문서\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management Books.pdb
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.BorrowForm.resources
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.ManageForm.resources
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.LoginForm.resources
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.MainForm.resources
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.SearchForm.resources
+C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.BookDetailForm_user.resources

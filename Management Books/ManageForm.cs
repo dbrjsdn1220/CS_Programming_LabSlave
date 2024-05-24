@@ -79,8 +79,6 @@ namespace Management_Books
 				item.SubItems.Add(book.getTitle());
 				item.SubItems.Add(book.getAuthor());
 				item.SubItems.Add(book.getCopyCount().ToString());
-				item.SubItems.Add("[ + ]");
-				item.SubItems.Add("[ - ]");
 				list_book.Items.Add(item);
 			}
 		}

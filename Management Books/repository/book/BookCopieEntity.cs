@@ -23,9 +23,9 @@ namespace Management_Books.repository.bookCopies
 
 		public long getId() { return id; }
 
-		public long getBook_id() {  return book_id; }
+		public long getBook_id() { return book_id; }
 
-		public bool isAvailable() { return available; }
+		public bool getAvailable() { return available; }
 
 		public DateTime getDate() { return date; }
 	}

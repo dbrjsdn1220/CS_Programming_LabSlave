@@ -110,6 +110,12 @@
     <Compile Include="BorrowForm.Designer.cs">
       <DependentUpon>BorrowForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BookDetailForm_user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookDetailForm_user.Designer.cs">
+      <DependentUpon>BookDetailForm_user.cs</DependentUpon>
+    </Compile>
     <Compile Include="InsertForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     <Compile Include="repository\book\BookRepository.cs" />
     <Compile Include="repository\CommonRepository.cs" />
     <Compile Include="repository\Database_Info.cs" />
+    <Compile Include="repository\loan\LoanBuilder.cs" />
+    <Compile Include="repository\loan\LoanEntity.cs" />
+    <Compile Include="repository\loan\LoanRepository.cs" />
     <Compile Include="repository\member\MemberBuilder.cs" />
     <Compile Include="repository\member\MemberEntity.cs" />
     <Compile Include="repository\member\MemberRepository.cs" />
@@ -153,12 +162,16 @@
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="service\BookService.cs" />
+    <Compile Include="service\LoanService.cs" />
     <Compile Include="service\MemberService.cs" />
     <EmbeddedResource Include="BookDetailForm.resx">
       <DependentUpon>BookDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BorrowForm.resx">
       <DependentUpon>BorrowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookDetailForm_user.resx">
+      <DependentUpon>BookDetailForm_user.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InsertForm.resx">
       <DependentUpon>InsertForm.cs</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Management_Books.service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,21 @@ namespace Management_Books
 {
     public partial class BorrowForm : Form
     {
-        public BorrowForm()
+		private long id;
+		private BookService bookService;
+		private LoanService loanService;
+
+        public BorrowForm(long id)
         {
             InitializeComponent();
+			this.id = id;
+			bookService = new BookService();
+			loanService = new LoanService();
         }
-    }
+
+		private void BorrowForm_Load(object sender, EventArgs e)
+		{
+			tb_book.Text = id.ToString();
+		}
+	}
 }

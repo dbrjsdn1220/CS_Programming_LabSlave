@@ -16,6 +16,10 @@ namespace Management_Books
         {
             InitializeComponent();
         }
+		private void MainForm_Load(object sender, EventArgs e)
+		{
+
+		}
 
         private void btn_search_Click(object sender, EventArgs e)
         {
@@ -32,12 +36,7 @@ namespace Management_Books
             subForm.ShowDialog();
             this.Visible = true;
         }
-        private void btn_borrow_Click(object sender, EventArgs e)
-        {
-            this.Visible = false;
-            BorrowForm subForm = new BorrowForm();
-            subForm.ShowDialog();
-            this.Visible = true;
-        }
-    }
+
+		
+	}
 }
