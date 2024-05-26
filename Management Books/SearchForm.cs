@@ -80,5 +80,13 @@ namespace Management_Books
 			BookDetailForm_user subFrom = new BookDetailForm_user(selectID);
 			subFrom.ShowDialog();
 		}
-	}
+
+        private void tb_search_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_search_Click(sender, e);
+            }
+        }
+    }
 }

@@ -34,6 +34,8 @@
             this.tb_id = new System.Windows.Forms.TextBox();
             this.btn_login = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.pb_pwd = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_pwd)).BeginInit();
             this.SuspendLayout();
             // 
             // tb_pwd
@@ -42,6 +44,7 @@
             this.tb_pwd.Name = "tb_pwd";
             this.tb_pwd.Size = new System.Drawing.Size(168, 21);
             this.tb_pwd.TabIndex = 8;
+            this.tb_pwd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_pwd_KeyDown);
             // 
             // label3
             // 
@@ -79,19 +82,35 @@
             this.btn_login.UseVisualStyleBackColor = false;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
-            // LoginFoam
+            // pb_pwd
+            // 
+            this.pb_pwd.ErrorImage = null;
+            this.pb_pwd.Image = global::Management_Books.Properties.Resources.hide_pwd;
+            this.pb_pwd.InitialImage = null;
+            this.pb_pwd.Location = new System.Drawing.Point(266, 54);
+            this.pb_pwd.Name = "pb_pwd";
+            this.pb_pwd.Size = new System.Drawing.Size(20, 19);
+            this.pb_pwd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_pwd.TabIndex = 11;
+            this.pb_pwd.TabStop = false;
+            this.pb_pwd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pb_pwd.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pb_pwd_MouseUp);
+            // 
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(298, 131);
+            this.Controls.Add(this.pb_pwd);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.tb_pwd);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tb_id);
-            this.Name = "LoginFoam";
+            this.Name = "LoginForm";
             this.Text = "관리자 로그인";
             this.Load += new System.EventHandler(this.LoginFoam_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_pwd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,5 +124,6 @@
         private System.Windows.Forms.TextBox tb_id;
         private System.Windows.Forms.Button btn_login;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.PictureBox pb_pwd;
     }
 }

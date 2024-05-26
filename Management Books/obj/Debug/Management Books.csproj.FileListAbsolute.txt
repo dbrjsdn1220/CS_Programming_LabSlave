@@ -160,3 +160,5 @@ C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\
 C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.MainForm.resources
 C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.SearchForm.resources
 C:\Users\LG\Documents\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.BookDetailForm_user.resources
+C:\Users\dbrjs\OneDrive\문서\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.BookDetailForm_user.resources
+C:\Users\dbrjs\OneDrive\문서\GitHub\CS_Programming_LabSlave\Management Books\obj\Debug\Management_Books.CheckBorrowForm.resources

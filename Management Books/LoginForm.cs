@@ -52,5 +52,25 @@ namespace Management_Books
                 this.Close();
             }
         }
+
+        private void tb_pwd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_login_Click(sender, e);
+            }
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            pb_pwd.Image = Management_Books.Properties.Resources.show_pwd;
+            tb_pwd.PasswordChar = default(char);
+        }
+
+        private void pb_pwd_MouseUp(object sender, MouseEventArgs e)
+        {
+            pb_pwd.Image = Management_Books.Properties.Resources.hide_pwd;
+            tb_pwd.PasswordChar = '*';
+        }
     }
 }
