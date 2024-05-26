@@ -32,10 +32,11 @@ namespace Management_Books
         private void BookDetailForm_Load(object sender, EventArgs e)
         {
 			list_copy.Columns.Add("번호", (int)(list_copy.Width * 0.15));
-			list_copy.Columns.Add("대출자", (int)(list_copy.Width * 0.25));
-			list_copy.Columns.Add("대출 일자", (int)(list_copy.Width * 0.25));
-			list_copy.Columns.Add("반납 예정", (int)(list_copy.Width * 0.25));
-			list_copy.Columns.Add("책 존재", (int)(list_copy.Width * 0.10));
+			list_copy.Columns.Add("대출자", (int)(list_copy.Width * 0.15));
+			list_copy.Columns.Add("대출 일자", (int)(list_copy.Width * 0.20));
+			list_copy.Columns.Add("반납 예정", (int)(list_copy.Width * 0.20));
+			list_copy.Columns.Add("대출 연장", (int)(list_copy.Width * 0.15));
+			list_copy.Columns.Add("책 존재", (int)(list_copy.Width * 0.15));
 
 			book = bookService.FindBookByBookId(bookId);
 			tb_category.Text = book.getCategory();
@@ -52,17 +53,40 @@ namespace Management_Books
 			}
 
 			int selectRow = list_copy.SelectedItems[0].Index;
-			if (list_copy.Items[selectRow].SubItems[4].Text == "0")
+			/*if (list_copy.Items[selectRow].SubItems[5].Text == "O")
 			{
 				MessageBox.Show("현재 도서관에 존재하지 않는 책입니다."); return;
-			}
-			long selectID = long.Parse(list_copy.Items[selectRow].SubItems[0].Text);
-			BorrowForm subFrom = new BorrowForm(selectID, tb_title.Text, tb_author.Text);
+			}*/
+			int studentId = -1;
+			long CopyBookId = long.Parse(list_copy.Items[selectRow].SubItems[0].Text);
+			int.TryParse(list_copy.Items[selectRow].SubItems[1].Text, out studentId);
+			BorrowForm subFrom = new BorrowForm(CopyBookId, studentId, tb_title.Text, tb_author.Text);
 			subFrom.ShowDialog();
-
 			Request();
 		}
-		
+
+		private void btn_extend_Click(object sender, EventArgs e)
+		{
+			if (list_copy.SelectedItems.Count == 0)
+			{
+				MessageBox.Show("대출을 연장할 책을 선택 해주세요."); return;
+			}
+
+			int selectRow = list_copy.SelectedItems[0].Index;
+			if (list_copy.Items[selectRow].SubItems[4].Text.Equals("O"))
+			{
+				MessageBox.Show("이미 대출 연장을 한 책입니다."); return;
+			}
+			long copyBookId = long.Parse(list_copy.Items[selectRow].SubItems[0].Text);
+			DateTime endDate;
+			DateTime.TryParse(list_copy.Items[selectRow].SubItems[3].Text, out endDate);
+			if (!loanService.BookExtend(copyBookId, endDate))
+			{
+				MessageBox.Show("대출 연장을 실패했습니다."); return;
+			}
+			Request();
+		}
+
 		private void Request()
 		{
 			List<CopyBookEntity> copyList = bookService.FindAllBookIdByCopyBook(book.getBookId());
@@ -81,17 +105,19 @@ namespace Management_Books
 				item.SubItems.Add("---");
 				item.SubItems.Add("---");
 				item.SubItems.Add("---");
-				item.SubItems.Add("1");
+				item.SubItems.Add("O");
+				item.SubItems.Add("O");
 				list_copy.Items.Add(item);
 			}
 
 			foreach (LoanEntity loan in loanList)
 			{
 				item = new ListViewItem(loan.getCopyBookId().ToString());
-				item.SubItems.Add(loan.getLoanId().ToString());
-				item.SubItems.Add(loan.getStartDate().ToString());
-				item.SubItems.Add(loan.getEndDate().ToString());
-				item.SubItems.Add(loan.getExtend().ToString());
+				item.SubItems.Add(loan.getStudentId().ToString());
+				item.SubItems.Add(loan.getStartDate().ToString("yyyy-MM-dd"));
+				item.SubItems.Add(loan.getEndDate().ToString("yyyy-MM-dd"));
+				item.SubItems.Add((loan.getExtend()) ? "O" : "X");
+				item.SubItems.Add("X");
 				list_copy.Items.Add(item);
 			}
 		}

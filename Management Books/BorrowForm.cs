@@ -16,15 +16,17 @@ namespace Management_Books
     public partial class BorrowForm : Form
     {
 		private long copyBookId;
+		private int studentId;
 		private string title;
 		private string author;
 		private BookService bookService;
 		private LoanService loanService;
 
-        public BorrowForm(long copyBookId, string title, string author)
+        public BorrowForm(long copyBookId, int studentId, string title, string author)
         {
             InitializeComponent();
 			this.copyBookId = copyBookId;
+			this.studentId = studentId;
 			this.title = title;
 			this.author = author;
 
@@ -56,34 +58,36 @@ namespace Management_Books
 			}
 			cb_number.SelectedIndex = 0;
 
-
-			list_loan.Columns.Add("번호", (int)(list_loan.Width * 0.10));
-			list_loan.Columns.Add("대출자", (int)(list_loan.Width * 0.15));
-			list_loan.Columns.Add("대출 일자", (int)(list_loan.Width * 0.30));
-			list_loan.Columns.Add("반납 예정", (int)(list_loan.Width * 0.30));
+			list_loan.Columns.Add("번호", (int)(list_loan.Width * 0.15));
+			list_loan.Columns.Add("대출자", (int)(list_loan.Width * 0.20));
+			list_loan.Columns.Add("대출 일자", (int)(list_loan.Width * 0.25));
+			list_loan.Columns.Add("반납 예정", (int)(list_loan.Width * 0.25));
 			list_loan.Columns.Add("연장 유무", (int)(list_loan.Width * 0.15));
+
+			List<LoanEntity> loanList = loanService.SelectStudentIdByLoans(studentId);
+			list_loan_print(loanList);
 		}
 
 		private void btn_borrow_Click(object sender, EventArgs e)
 		{
-			bool borrow = false;
+			bool result = false;
 			int studentId;
-			string result;
+			string str;
 			if (!int.TryParse(cb_grade.Text + cb_class.Text + cb_number.Text, out studentId))
 			{
 				MessageBox.Show("학년, 반, 번호를 선택 해주세요."); return;
 			}
-			result = loanService.BookBorrow(copyBookId, studentId);
-			// bookService;
-			if (!result.Equals("대출 성공"))
+
+			str = loanService.BookBorrow(copyBookId, studentId);
+			if (!str.Equals("대출 성공"))
 			{
-				MessageBox.Show(result); return;
+				MessageBox.Show(str); return;
 			}
 
-			borrow = bookService.BookBorrow(copyBookId);
-			if (!borrow)
+			result = bookService.BookBorrow(copyBookId);
+			if (!result)
 			{
-
+				MessageBox.Show(copyBookId.ToString() + " : 사본 책이 없어짐을 갱신 실패"); return;
 			}
 
 			List<LoanEntity> loanList = loanService.SelectStudentIdByLoans(studentId);
@@ -92,13 +96,28 @@ namespace Management_Books
 
 		private void btn_return_Click(object sender, EventArgs e)
 		{
+			bool result = false;
 			int studentId;
+			string str;
 			if (!int.TryParse(cb_grade.Text + cb_class.Text + cb_number.Text, out studentId))
 			{
 				MessageBox.Show("학년, 반, 번호를 선택 해주세요."); return;
 			}
-			/*List<LoanEntity> loanList = loanService.SelectStudentIdByLoans(studentId);
-			list_loan_print(loanList);*/
+
+			str = loanService.BookReturn(copyBookId, studentId);
+			if (!str.Equals("반납 성공"))
+			{
+				MessageBox.Show(str); return;
+			}
+
+			result = bookService.BookReturn(copyBookId);
+			if (!result)
+			{
+				MessageBox.Show(copyBookId.ToString() + " : 사본 책이 돌아옴을 갱신 실패"); return;
+			}
+
+			List<LoanEntity> loanList = loanService.SelectStudentIdByLoans(studentId);
+			list_loan_print(loanList);
 		}
 
 		private void list_loan_print(List<LoanEntity> loanList)
@@ -110,9 +129,9 @@ namespace Management_Books
 			{
 				item = new ListViewItem(loan.getCopyBookId().ToString());
 				item.SubItems.Add(loan.getStudentId().ToString());
-				item.SubItems.Add(loan.getStartDate().ToString());
-				item.SubItems.Add(loan.getEndDate().ToString());
-				item.SubItems.Add(loan.getExtend().ToString());
+				item.SubItems.Add(loan.getStartDate().ToString("yyyy-MM-dd"));
+				item.SubItems.Add(loan.getEndDate().ToString("yyyy-MM-dd"));
+				item.SubItems.Add((loan.getExtend()) ? "O" : "X");
 				list_loan.Items.Add(item);
 			}
 		}

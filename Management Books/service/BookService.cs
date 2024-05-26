@@ -94,6 +94,11 @@ namespace Management_Books.service
 			return bookRepository.SelectCopyBookIdByBorrow(copyBookId);
 		}
 
+		public bool BookReturn(long copyBookId)
+		{
+			return bookRepository.SelectCopyBookIdByReturn(copyBookId);
+		}
+
 		// ===================================================================
 
 		/**

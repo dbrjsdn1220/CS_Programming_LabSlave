@@ -48,7 +48,7 @@ namespace Management_Books
 			foreach (CopyBookEntity copy in bookList)
 			{
 				item = new ListViewItem(copy.getCopyBookId().ToString());
-				item.SubItems.Add(copy.getAlive().ToString());
+				item.SubItems.Add((copy.getAlive()) ? "O" : "X");
 				list_copy.Items.Add(item);
 			}
 		}

@@ -30,11 +30,35 @@ namespace Management_Books.service
 					{
 						return "대출 성공";
 					}
-					return "현재 빌린 책의 갯수, 갱신 실패";
+					return "대출은 성공 했으나, 학생의 현재 빌린 책의 갯수, 갱신 실패";
 				}
 				return "대출 실패";
 			}
-			return "대출 불가능";
+			return "빌린 책이 2권을 초과 하였습니다.";
+		}
+
+		public string BookReturn(long copyBookId, int studentId)
+		{
+			(int nowCount, int maxCount) = loanRepository.CheckBorrowCount(studentId);
+
+			if (nowCount > 0)
+			{
+				if (loanRepository.DeleteLoan(copyBookId, studentId))
+				{
+					if (loanRepository.UpdateBookReturnCount(studentId, nowCount))
+					{
+						return "반납 성공";
+					}
+					return "반납은 성공 했으나, 학생의 현재 빌린 책의 갯수, 갱신 실패";
+				}
+				return "반납 실패";
+			}
+			return "빌린 책이 없습니다.";
+		}
+
+		public bool BookExtend(long copyBookId, DateTime endDate)
+		{
+			return loanRepository.UpdateBookExtend(copyBookId, endDate);
 		}
 
 		public List<LoanEntity> SelectCopyBookIdByLoans(long copyBookId)
@@ -47,37 +71,13 @@ namespace Management_Books.service
 			return loanRepository.SelectStudentId(studentId);
 		}
 
-
-
-
-		/*// 반납일 체크
-		public bool BookReturn(long customer_id)
-		{
-			List<LoanEntity> result = SelectStudentIdByLoans(customer_id);
-
-
-			return false;
-		}
-
-		// 연장 카운트 체크 + 연장되었다면?
-		public bool BookExtend(long customer_id)
-		{
-			List<LoanEntity> result = SelectStudentIdByLoans(customer_id);
-
-
-			return false;
-		}*/
-
+		/**
+		 * @param	(bookId	: )
+		 * @return	
+		 **/
 		public List<LoanEntity> FindByCopyIdAll(long bookId)
 		{
 			return loanRepository.GetLoansByCopyId(bookId);
 		}
-
-		private bool Block()
-		{
-			return false;
-		}
-
-
 	}
 }

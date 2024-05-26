@@ -44,7 +44,7 @@ namespace Management_Books
 											.id(tb_id.Text)
 											.pwd(tb_pwd.Text)
 											.build();
-				MessageBox.Show(member.toString());
+				MessageBox.Show(member.getId());
 				int result = memberService.Login(member);
 				if (result == 0)
 				{
@@ -58,7 +58,7 @@ namespace Management_Books
 				{
 					MessageBox.Show("로그인 성공!");
 					this.Visible = false;
-					ManageFoam subFoam = new ManageFoam(member.getId());
+					ManageForm subFoam = new ManageForm(member.getId());
 					subFoam.ShowDialog();
 					this.Close();
 				}

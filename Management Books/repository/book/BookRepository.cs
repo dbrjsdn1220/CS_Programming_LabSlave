@@ -223,11 +223,11 @@ namespace Management_Books.repository.book
 
 		/**
 		 * @param	(bookId	: 단일 책 PK값 정보)
-		 * @return	단일 책 PK와 일치하는, 사본 책들의 정보를 Copy_Books 테이블에서 가져오기
+		 * @return	단일 책 PK와 일치하는 동시에, 도서관에 존재하는 사본 책들의 정보를 Copy_Books 테이블에서 가져오기
 		 **/
 		public List<CopyBookEntity> FindAllCopyBook(long bookId)
 		{
-			string queryCopyBooks = "SELECT * FROM copy_books WHERE book_id = @book_id";
+			string queryCopyBooks = "SELECT * FROM copy_books WHERE book_id = @book_id AND alive = 1";
 
 			try
 			{
@@ -412,7 +412,7 @@ namespace Management_Books.repository.book
 							.copyBookId(reader.GetInt64(0))
 							.bookId(reader.GetInt64(1))
 							.alive(reader.GetBoolean(2))
-							.buyDate(DateTime.Parse(reader.GetDateTime(3).ToString("yyyy-MM-dd")))
+							.buyDate(reader.GetDateTime(3).Date)
 							.build();
 			}
 			return new CopyBookBuilder().build();
@@ -431,7 +431,7 @@ namespace Management_Books.repository.book
 										.copyBookId(reader.GetInt64(0))
 										.bookId(reader.GetInt64(1))
 										.alive(reader.GetBoolean(2))
-										.buyDate(DateTime.Parse(reader.GetDateTime(3).ToString("yyyy-MM-dd")))
+										.buyDate(reader.GetDateTime(3).Date)
 										.build());
 			}
 			return copyBookList;

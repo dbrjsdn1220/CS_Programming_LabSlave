@@ -3,24 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|c:\\users\\lg\\documents\\github\\cs_programming_labslave\\management books\\repository\\book\\bookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\repository\\book\\bookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|c:\\users\\lg\\documents\\github\\cs_programming_labslave\\management books\\bookdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\bookdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|c:\\users\\lg\\documents\\github\\cs_programming_labslave\\management books\\repository\\loan\\loanrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\repository\\loan\\loanrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|c:\\users\\lg\\documents\\github\\cs_programming_labslave\\management books\\service\\loanservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\service\\loanservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|c:\\users\\lg\\documents\\github\\cs_programming_labslave\\management books\\bookdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\bookdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\management books\\borrowform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\borrowform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\management books\\manageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\manageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|c:\\users\\lg\\documents\\github\\cs_programming_labslave\\management books\\borrowform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\borrowform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\management books\\bookdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\bookdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\management books\\bookdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\bookdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\management books\\insertform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|c:\\users\\lg\\documents\\github\\cs_programming_labslave\\management books\\insertform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\insertform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|c:\\users\\lg\\documents\\github\\cs_programming_labslave\\management books\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|c:\\users\\lg\\documents\\github\\cs_programming_labslave\\management books\\repository\\database_info.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\repository\\database_info.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,23 +50,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ManageForm.cs [\uB514\uC790\uC778]",
-              "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\ManageForm.cs",
-              "RelativeDocumentMoniker": "Management Books\\ManageForm.cs",
-              "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\ManageForm.cs [\uB514\uC790\uC778]",
-              "RelativeToolTip": "Management Books\\ManageForm.cs [\uB514\uC790\uC778]",
+              "DocumentIndex": 0,
+              "Title": "BookRepository.cs",
+              "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\repository\\book\\BookRepository.cs",
+              "RelativeDocumentMoniker": "Management Books\\repository\\book\\BookRepository.cs",
+              "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\repository\\book\\BookRepository.cs",
+              "RelativeToolTip": "Management Books\\repository\\book\\BookRepository.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABsAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-26T09:31:02.523Z",
+              "WhenOpened": "2024-05-26T16:54:02.665Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BookDetailForm.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\BookDetailForm.cs",
+              "RelativeDocumentMoniker": "Management Books\\BookDetailForm.cs",
+              "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\BookDetailForm.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "Management Books\\BookDetailForm.cs [\uB514\uC790\uC778]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T16:27:13.91Z",
               "EditorCaption": " [\uB514\uC790\uC778]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "BorrowForm.cs [\uB514\uC790\uC778]",
               "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\BorrowForm.cs",
               "RelativeDocumentMoniker": "Management Books\\BorrowForm.cs",
@@ -58,37 +91,120 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
+              "Title": "LoginForm.cs",
+              "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\LoginForm.cs",
+              "RelativeDocumentMoniker": "Management Books\\LoginForm.cs",
+              "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\LoginForm.cs",
+              "RelativeToolTip": "Management Books\\LoginForm.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAtwC4AAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T15:18:33.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Database_Info.cs",
+              "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\repository\\Database_Info.cs",
+              "RelativeDocumentMoniker": "Management Books\\repository\\Database_Info.cs",
+              "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\repository\\Database_Info.cs",
+              "RelativeToolTip": "Management Books\\repository\\Database_Info.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T15:20:19.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "InsertForm.cs [\uB514\uC790\uC778]",
               "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\InsertForm.cs",
               "RelativeDocumentMoniker": "Management Books\\InsertForm.cs",
               "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\InsertForm.cs [\uB514\uC790\uC778]",
               "RelativeToolTip": "Management Books\\InsertForm.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-26T09:01:28.22Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BookDetailForm.cs [\uB514\uC790\uC778]",
-              "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\BookDetailForm.cs",
-              "RelativeDocumentMoniker": "Management Books\\BookDetailForm.cs",
-              "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\BookDetailForm.cs [\uB514\uC790\uC778]",
-              "RelativeToolTip": "Management Books\\BookDetailForm.cs [\uB514\uC790\uC778]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-26T08:59:09.049Z"
-            },
+              "WhenOpened": "2024-05-26T09:01:28.22Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "7b21cccc-148e-4e78-80a1-dce6e324cf68",
+        "Display": 0,
+        "X": 520,
+        "Y": 265,
+        "Width": 1004,
+        "Height": 564,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "LoanRepository.cs",
+              "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\repository\\loan\\LoanRepository.cs",
+              "RelativeDocumentMoniker": "Management Books\\repository\\loan\\LoanRepository.cs",
+              "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\repository\\loan\\LoanRepository.cs",
+              "RelativeToolTip": "Management Books\\repository\\loan\\LoanRepository.cs",
+              "ViewState": "AQIAAHEAAAAAAAAAAAAIwIwAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T16:52:32.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "BookDetailForm.cs",
               "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\BookDetailForm.cs",
               "RelativeDocumentMoniker": "Management Books\\BookDetailForm.cs",
               "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\BookDetailForm.cs",
               "RelativeToolTip": "Management Books\\BookDetailForm.cs",
-              "ViewState": "AQIAAEwAAAAAAAAAAAAIwD0AAAAAAAAA",
+              "ViewState": "AQIAADkAAAAAAAAAAAAEwEsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-26T08:56:18.465Z"
+              "WhenOpened": "2024-05-26T16:27:36.903Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoanService.cs",
+              "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\service\\LoanService.cs",
+              "RelativeDocumentMoniker": "Management Books\\service\\LoanService.cs",
+              "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\service\\LoanService.cs",
+              "RelativeToolTip": "Management Books\\service\\LoanService.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAywDwAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T16:52:30.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BorrowForm.cs",
+              "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\BorrowForm.cs",
+              "RelativeDocumentMoniker": "Management Books\\BorrowForm.cs",
+              "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\BorrowForm.cs",
+              "RelativeToolTip": "Management Books\\BorrowForm.cs",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAowEMAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T16:42:16.383Z",
+              "EditorCaption": ""
             }
           ]
         }

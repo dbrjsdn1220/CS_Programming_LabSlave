@@ -1,5 +1,6 @@
 ﻿using Management_Books.repository.bookCopies;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.X509;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,6 +51,31 @@ namespace Management_Books.repository.loan
 			return false;
 		}
 
+		public bool DeleteLoan(long copyBookId, int studentId)
+		{
+			string queryLoans = "DELETE FROM loans WHERE copyBook_id = @copyBook_id AND student_id = @student_id";
+		
+			try
+			{
+				cmd = GetCommand(queryLoans, conn);
+				cmd.Parameters.Clear();
+				cmd.Parameters.AddWithValue("@copyBook_id", copyBookId);
+				cmd.Parameters.AddWithValue("@student_id", studentId);
+				cmd.ExecuteNonQuery();
+				return true;
+			}
+			catch (MySqlException e)
+			{
+				Console.WriteLine("[LoanRepository.cs / DeleteLoan.method / Error : " + e.Message + "]");
+			}
+			finally
+			{
+				ReaderClose();
+				CommandClose();
+			}
+			return false;
+		}
+
 		public bool UpdateBookBorrowCount(int studentId, int nowCount)
 		{
 			string queryStudents = "UPDATE students SET nowCount = @nowCount WHERE student_id = @student_id";
@@ -66,6 +92,58 @@ namespace Management_Books.repository.loan
 			catch (MySqlException e)
 			{
 				Console.WriteLine("[LoanRepository.cs / UpdateBookBorrowCount.method / Error : " + e.Message + "]");
+			}
+			finally
+			{
+				ReaderClose();
+				CommandClose();
+			}
+			return false;
+		}
+
+		public bool UpdateBookReturnCount(int studentId, int nowCount)
+		{
+			string queryStudents = "UPDATE students SET nowCount = @nowCount WHERE student_id = @student_id";
+
+			try
+			{
+				cmd = GetCommand(queryStudents, conn);
+				cmd.Parameters.Clear();
+				cmd.Parameters.AddWithValue("@nowCount", nowCount - 1);
+				cmd.Parameters.AddWithValue("@student_id", studentId);
+				cmd.ExecuteNonQuery();
+				return true;
+			}
+			catch (MySqlException e)
+			{
+				Console.WriteLine("[LoanRepository.cs / UpdateBookReturnCount.method / Error : " + e.Message + "]");
+			}
+			finally
+			{
+				ReaderClose();
+				CommandClose();
+			}
+			return false;
+		}
+
+		public bool UpdateBookExtend(long copyBookId, DateTime endDate)
+		{
+			string end_date = endDate.AddDays(7).ToString("yyyy-MM-dd");
+			string queryLoans = "UPDATE loans SET extend = @extend, end_date = @end_date WHERE copyBook_id = @copyBook_id";
+
+			try
+			{
+				cmd = GetCommand(queryLoans, conn);
+				cmd.Parameters.Clear();
+				cmd.Parameters.AddWithValue("@extend", 1);
+				cmd.Parameters.AddWithValue("@end_date", end_date);
+				cmd.Parameters.AddWithValue("@copyBook_id", copyBookId);
+				cmd.ExecuteNonQuery();
+				return true;
+			}
+			catch (MySqlException e)
+			{
+				Console.WriteLine("[LoanRepository.cs / UpdateBookExtend.method / Error : " + e.Message + "]");
 			}
 			finally
 			{
@@ -193,8 +271,8 @@ namespace Management_Books.repository.loan
 							.loanId(reader.GetInt64(0))
 							.copyBookId(reader.GetInt64(1))
 							.studentId(reader.GetInt32(2))
-							.startDate(DateTime.Parse(reader.GetDateTime(3).ToString("yyyy-MM-dd")))
-							.endDate(DateTime.Parse(reader.GetDateTime(4).ToString("yyyy-MM-dd")))
+							.startDate(reader.GetDateTime(3).Date)
+							.endDate(reader.GetDateTime(4).Date)
 							.extend(reader.GetBoolean(5))
 							.build();
 			}
@@ -210,8 +288,8 @@ namespace Management_Books.repository.loan
 									.loanId(reader.GetInt64(0))
 									.copyBookId(reader.GetInt64(1))
 									.studentId(reader.GetInt32(2))
-									.startDate(DateTime.Parse(reader.GetDateTime(3).ToString("yyyy-MM-dd")))
-									.endDate(DateTime.Parse(reader.GetDateTime(4).ToString("yyyy-MM-dd")))
+									.startDate(reader.GetDateTime(3).Date)
+									.endDate(reader.GetDateTime(4).Date)
 									.extend(reader.GetBoolean(5))
 									.build());
 			}

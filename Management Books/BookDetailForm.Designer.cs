@@ -33,11 +33,9 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.tb_title = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.button2 = new System.Windows.Forms.Button();
 			this.list_copy = new System.Windows.Forms.ListView();
 			this.tb_category = new System.Windows.Forms.TextBox();
-			this.button1 = new System.Windows.Forms.Button();
-			this.button3 = new System.Windows.Forms.Button();
+			this.btn_extend = new System.Windows.Forms.Button();
 			this.btn_borrow = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
@@ -56,7 +54,7 @@
 			this.tb_author.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.tb_author.Name = "tb_author";
 			this.tb_author.ReadOnly = true;
-			this.tb_author.Size = new System.Drawing.Size(127, 25);
+			this.tb_author.Size = new System.Drawing.Size(206, 25);
 			this.tb_author.TabIndex = 29;
 			// 
 			// label4
@@ -86,16 +84,6 @@
 			this.label1.TabIndex = 24;
 			this.label1.Text = "제목";
 			// 
-			// button2
-			// 
-			this.button2.Location = new System.Drawing.Point(645, 19);
-			this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(94, 29);
-			this.button2.TabIndex = 33;
-			this.button2.Text = "전체 삭제";
-			this.button2.UseVisualStyleBackColor = true;
-			// 
 			// list_copy
 			// 
 			this.list_copy.FullRowSelect = true;
@@ -118,35 +106,26 @@
 			this.tb_category.Size = new System.Drawing.Size(99, 25);
 			this.tb_category.TabIndex = 35;
 			// 
-			// button1
+			// btn_extend
 			// 
-			this.button1.Location = new System.Drawing.Point(544, 329);
-			this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(94, 29);
-			this.button1.TabIndex = 36;
-			this.button1.Text = "선택 삭제";
-			this.button1.UseVisualStyleBackColor = true;
-			// 
-			// button3
-			// 
-			this.button3.Location = new System.Drawing.Point(645, 329);
-			this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(94, 29);
-			this.button3.TabIndex = 37;
-			this.button3.Text = "대출 연장";
-			this.button3.UseVisualStyleBackColor = true;
+			this.btn_extend.Location = new System.Drawing.Point(645, 329);
+			this.btn_extend.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.btn_extend.Name = "btn_extend";
+			this.btn_extend.Size = new System.Drawing.Size(94, 29);
+			this.btn_extend.TabIndex = 37;
+			this.btn_extend.Text = "대출 연장";
+			this.btn_extend.UseVisualStyleBackColor = true;
+			this.btn_extend.Click += new System.EventHandler(this.btn_extend_Click);
 			// 
 			// btn_borrow
 			// 
 			this.btn_borrow.BackColor = System.Drawing.Color.Gold;
-			this.btn_borrow.Location = new System.Drawing.Point(452, 329);
+			this.btn_borrow.Location = new System.Drawing.Point(544, 329);
 			this.btn_borrow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btn_borrow.Name = "btn_borrow";
-			this.btn_borrow.Size = new System.Drawing.Size(86, 29);
+			this.btn_borrow.Size = new System.Drawing.Size(95, 29);
 			this.btn_borrow.TabIndex = 38;
-			this.btn_borrow.Text = "대출";
+			this.btn_borrow.Text = "상호 작용";
 			this.btn_borrow.UseVisualStyleBackColor = false;
 			this.btn_borrow.Click += new System.EventHandler(this.btn_borrow_Click);
 			// 
@@ -156,11 +135,9 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(752, 369);
 			this.Controls.Add(this.btn_borrow);
-			this.Controls.Add(this.button3);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.btn_extend);
 			this.Controls.Add(this.tb_category);
 			this.Controls.Add(this.list_copy);
-			this.Controls.Add(this.button2);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.tb_author);
 			this.Controls.Add(this.label4);
@@ -181,11 +158,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tb_title;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListView list_copy;
         private System.Windows.Forms.TextBox tb_category;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_extend;
 		private System.Windows.Forms.Button btn_borrow;
 	}
 }

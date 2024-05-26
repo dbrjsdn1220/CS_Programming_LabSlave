@@ -29,12 +29,12 @@
 		private void InitializeComponent()
 		{
 			this.tb_category = new System.Windows.Forms.TextBox();
-			this.list_copy = new System.Windows.Forms.ListView();
 			this.label5 = new System.Windows.Forms.Label();
 			this.tb_author = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.tb_title = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
+			this.list_copy = new System.Windows.Forms.ListView();
 			this.SuspendLayout();
 			// 
 			// tb_category
@@ -45,18 +45,6 @@
 			this.tb_category.ReadOnly = true;
 			this.tb_category.Size = new System.Drawing.Size(99, 25);
 			this.tb_category.TabIndex = 46;
-			// 
-			// list_copy
-			// 
-			this.list_copy.GridLines = true;
-			this.list_copy.HideSelection = false;
-			this.list_copy.Location = new System.Drawing.Point(20, 86);
-			this.list_copy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.list_copy.Name = "list_copy";
-			this.list_copy.Size = new System.Drawing.Size(724, 255);
-			this.list_copy.TabIndex = 45;
-			this.list_copy.UseCompatibleStateImageBehavior = false;
-			this.list_copy.View = System.Windows.Forms.View.Details;
 			// 
 			// label5
 			// 
@@ -103,13 +91,26 @@
 			this.label1.TabIndex = 39;
 			this.label1.Text = "제목";
 			// 
+			// list_copy
+			// 
+			this.list_copy.FullRowSelect = true;
+			this.list_copy.GridLines = true;
+			this.list_copy.HideSelection = false;
+			this.list_copy.Location = new System.Drawing.Point(12, 110);
+			this.list_copy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.list_copy.Name = "list_copy";
+			this.list_copy.Size = new System.Drawing.Size(732, 255);
+			this.list_copy.TabIndex = 47;
+			this.list_copy.UseCompatibleStateImageBehavior = false;
+			this.list_copy.View = System.Windows.Forms.View.Details;
+			// 
 			// BookDetailForm_user
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(756, 378);
-			this.Controls.Add(this.tb_category);
 			this.Controls.Add(this.list_copy);
+			this.Controls.Add(this.tb_category);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.tb_author);
 			this.Controls.Add(this.label4);
@@ -125,11 +126,11 @@
 
 		#endregion
 		private System.Windows.Forms.TextBox tb_category;
-		private System.Windows.Forms.ListView list_copy;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.TextBox tb_author;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.TextBox tb_title;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.ListView list_copy;
 	}
 }
