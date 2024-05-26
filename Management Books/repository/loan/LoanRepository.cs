@@ -193,8 +193,8 @@ namespace Management_Books.repository.loan
 							.loanId(reader.GetInt64(0))
 							.copyBookId(reader.GetInt64(1))
 							.studentId(reader.GetInt32(2))
-							.startDate(reader.GetDateTime(3))
-							.endDate(reader.GetDateTime(4))
+							.startDate(DateTime.Parse(reader.GetDateTime(3).ToString("yyyy-MM-dd")))
+							.endDate(DateTime.Parse(reader.GetDateTime(4).ToString("yyyy-MM-dd")))
 							.extend(reader.GetBoolean(5))
 							.build();
 			}
@@ -210,8 +210,8 @@ namespace Management_Books.repository.loan
 									.loanId(reader.GetInt64(0))
 									.copyBookId(reader.GetInt64(1))
 									.studentId(reader.GetInt32(2))
-									.startDate(reader.GetDateTime(3))
-									.endDate(reader.GetDateTime(4))
+									.startDate(DateTime.Parse(reader.GetDateTime(3).ToString("yyyy-MM-dd")))
+									.endDate(DateTime.Parse(reader.GetDateTime(4).ToString("yyyy-MM-dd")))
 									.extend(reader.GetBoolean(5))
 									.build());
 			}

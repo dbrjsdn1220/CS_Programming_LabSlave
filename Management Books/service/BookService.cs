@@ -84,6 +84,16 @@ namespace Management_Books.service
 			return bookRepository.FindAllCopyBook(bookId);
 		}
 
+		/**
+		 * @param	(copyBookId	: 빌려가고자 하는 사본 책 PK 값)
+		 * @return	Copy_Books 테이블 내에 PK 값과 일치하는 행의 데이터를 수정하여,
+		 *			책을 빌려갔음을 표시한다.
+		 **/
+		public bool BookBorrow(long copyBookId)
+		{
+			return bookRepository.SelectCopyBookIdByBorrow(copyBookId);
+		}
+
 		// ===================================================================
 
 		/**

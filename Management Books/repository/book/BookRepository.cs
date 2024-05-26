@@ -1,5 +1,6 @@
 ﻿using Management_Books.repository.bookCopies;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Bcpg.OpenPgp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -299,6 +300,65 @@ namespace Management_Books.repository.book
 			return Tuple.Create(bookId, copyCount);
 		}
 
+		/**
+		 * @param	(copyBookId : 상호 작용할, 사본 책 PK 값)
+		 * @return	Copy_Books 테이블 내에 PK 값과 일치하는 행의 데이터를 수정하여,
+		 *			책을 빌려갔음을 표시한다.
+		 **/
+		public bool SelectCopyBookIdByBorrow(long copyBookId)
+		{
+			string queryCopyBooks = "UPDATE copy_books SET alive = @alive WHERE copyBook_id = @copyBook_id";
+
+			try
+			{
+				cmd = GetCommand(queryCopyBooks, conn);
+				cmd.Parameters.Clear();
+				cmd.Parameters.AddWithValue("@alive", 0);
+				cmd.Parameters.AddWithValue("copyBook_id", copyBookId);
+				cmd.ExecuteNonQuery();
+				return true;
+			}
+			catch (MySqlException e)
+			{
+				Console.WriteLine("[BookRepository.cs / SelectCopyBookIdByBorrow.method / Error : " + e.Message + "]");
+			}
+			finally
+			{
+				ReaderClose();
+				CommandClose();
+			}
+			return false;
+		}
+
+		/**
+		 * @param	(copyBookId : 상호 작용할, 사본 책 PK 값)
+		 * @return	Copy_Books 테이블 내에 PK 값과 일치하는 행의 데이터를 수정하여,
+		 *			책을 반납했음을 표시한다.
+		 **/
+		public bool SelectCopyBookIdByReturn(long copyBookId) {
+			string queryCopyBooks = "UPDATE copy_books SET alive = @alive WHERE copyBook_id = @copyBook_id";
+
+			try
+			{
+				cmd = GetCommand(queryCopyBooks, conn);
+				cmd.Parameters.Clear();
+				cmd.Parameters.AddWithValue("@alive", 1);
+				cmd.Parameters.AddWithValue("copyBook_id", copyBookId);
+				cmd.ExecuteNonQuery();
+				return true;
+			}
+			catch (MySqlException e)
+			{
+				Console.WriteLine("[BookRepository.cs / SelectCopyBookIdByReturn.method / Error : " + e.Message + "]");
+			}
+			finally
+			{
+				ReaderClose();
+				CommandClose();
+			}
+			return false;
+		}
+
 		// ======================================================================================================
 
 		/**
@@ -352,7 +412,7 @@ namespace Management_Books.repository.book
 							.copyBookId(reader.GetInt64(0))
 							.bookId(reader.GetInt64(1))
 							.alive(reader.GetBoolean(2))
-							.buyDate(reader.GetDateTime(3))
+							.buyDate(DateTime.Parse(reader.GetDateTime(3).ToString("yyyy-MM-dd")))
 							.build();
 			}
 			return new CopyBookBuilder().build();
@@ -371,7 +431,7 @@ namespace Management_Books.repository.book
 										.copyBookId(reader.GetInt64(0))
 										.bookId(reader.GetInt64(1))
 										.alive(reader.GetBoolean(2))
-										.buyDate(reader.GetDateTime(3))
+										.buyDate(DateTime.Parse(reader.GetDateTime(3).ToString("yyyy-MM-dd")))
 										.build());
 			}
 			return copyBookList;
