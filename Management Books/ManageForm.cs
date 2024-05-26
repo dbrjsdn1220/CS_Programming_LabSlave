@@ -120,5 +120,19 @@ namespace Management_Books
 		{
 			return value == null || value.Trim().Length == 0;
 		}
+
+		private void tb_search_KeyDown(object sender, KeyEventArgs e)
+		{
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_search_Click(sender, e);
+            }
+        }
+
+		private void btn_check_borrow_Click(object sender, EventArgs e)
+		{
+			CheckBorrowForm subForm = new CheckBorrowForm();
+			subForm.ShowDialog();
+		}
 	}
 }

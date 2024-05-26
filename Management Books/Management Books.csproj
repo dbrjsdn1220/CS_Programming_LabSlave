@@ -116,6 +116,12 @@
     <Compile Include="BookDetailForm_user.Designer.cs">
       <DependentUpon>BookDetailForm_user.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckBorrowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckBorrowForm.Designer.cs">
+      <DependentUpon>CheckBorrowForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InsertForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +180,9 @@
     <EmbeddedResource Include="BookDetailForm_user.resx">
       <DependentUpon>BookDetailForm_user.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CheckBorrowForm.resx">
+      <DependentUpon>CheckBorrowForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InsertForm.resx">
       <DependentUpon>InsertForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,6 +223,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SQL\Yu_Geonu_Table.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="resource\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
