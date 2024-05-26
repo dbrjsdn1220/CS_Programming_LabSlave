@@ -31,24 +31,24 @@ namespace Management_Books
 			list_copy.Columns.Add("번호", (int)(list_copy.Width * 0.15));
 			list_copy.Columns.Add("존재 유무", (int)(list_copy.Width * 0.10));
 
-			book = bookService.FindBook(bookId);
+			book = bookService.FindBookByBookId(bookId);
 			tb_category.Text = book.getCategory();
 			tb_title.Text = book.getTitle();
 			tb_author.Text = book.getAuthor();
 
-			List<BookCopieEntity> copyList = bookService.FindAllCopiesByBookId(book.getId());
+			List<CopyBookEntity> copyList = bookService.FindAllBookIdByCopyBook(book.getBookId());
 			list_copyBook_print(copyList);
 		}
 
-		private void list_copyBook_print(List<BookCopieEntity> bookList)
+		private void list_copyBook_print(List<CopyBookEntity> bookList)
 		{
 			list_copy.Items.Clear();
 			ListViewItem item;
 
-			foreach (BookCopieEntity copy in bookList)
+			foreach (CopyBookEntity copy in bookList)
 			{
-				item = new ListViewItem(copy.getId().ToString());
-				item.SubItems.Add(copy.getAvailable().ToString());
+				item = new ListViewItem(copy.getCopyBookId().ToString());
+				item.SubItems.Add(copy.getAlive().ToString());
 				list_copy.Items.Add(item);
 			}
 		}

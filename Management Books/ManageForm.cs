@@ -47,6 +47,14 @@ namespace Management_Books
 			subFoam.DataSendEvent += new DataGetEventHandler(this.DataGet);
 			subFoam.ShowDialog();
 
+			if (CheckString(book.getTitle())
+				|| CheckString(book.getAuthor())
+				|| CheckString(book.getCategory())
+				|| book.getCopyCount() < 0)
+			{
+				MessageBox.Show("데이터를 제대로 입력 해주세요."); return;
+			}
+
 			if (!bookService.AddBook(book)) {
 				MessageBox.Show("저장 실패!"); return;
 			}
@@ -57,7 +65,7 @@ namespace Management_Books
 
 		private void btn_search_Click(object sender, EventArgs e)
 		{
-			if (String.IsNullOrWhiteSpace(tb_search.Text))	// 문자열이 null이거나 빈 문자열 또는 공백 문자열일 경우
+			if (CheckString(tb_search.Text))  // 문자열이 null이거나 빈 문자열 또는 공백 문자열일 경우
 			{
 				MessageBox.Show("검색어를 입력 해주세요."); return;
 			}
@@ -65,9 +73,14 @@ namespace Management_Books
 			List<BookEntity> bookList = bookService.SearchOption(cb_category.Text, tb_search.Text);
 			list_book_print(bookList);
 		}
-		/**
-		 * 단순 list 출력용 method
-		 */
+
+		private void btn_reset_Click(object sender, EventArgs e)
+		{
+			List<BookEntity> bookList = bookService.GetAllBooks();
+			list_book_print(bookList);
+		}
+
+
 		private void list_book_print(List<BookEntity> bookList)
 		{
 			list_book.Items.Clear();
@@ -76,14 +89,22 @@ namespace Management_Books
 			foreach (BookEntity book in bookList)
 			{
 				item = new ListViewItem(book.getCategory());
-				item.SubItems.Add(book.getTitle());
 				item.SubItems.Add(book.getAuthor());
+				item.SubItems.Add(book.getTitle());
 				item.SubItems.Add(book.getCopyCount().ToString());
 				list_book.Items.Add(item);
 			}
 		}
-		
-		private void DataGet(string title, string author, string category, int copyCount)
+		private void list_book_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			List<BookEntity> bookList = bookService.GetAllBooks();
+			int selectRow = list_book.SelectedItems[0].Index;
+			long selectID = bookList[selectRow].getBookId();
+			BookDetailForm subFrom = new BookDetailForm(selectID);
+			subFrom.ShowDialog();
+		}
+
+		private void DataGet(string category, string title, string author, int copyCount)
 		{
 			book = new BookBuilder()
 						.title(title)
@@ -93,13 +114,11 @@ namespace Management_Books
 						.build();
 		}
 
-		private void list_book_MouseDoubleClick(object sender, MouseEventArgs e)
+
+		// String.IsNullOrWhiteSpace(value) 도 이하 동일
+		private bool CheckString(string value)
 		{
-            List<BookEntity> bookList = bookService.GetAllBooks();
-            int selectRow = list_book.SelectedItems[0].Index;
-			long selectID = bookList[selectRow].getId();
-            BookDetailForm subFrom = new BookDetailForm(selectID);
-            subFrom.ShowDialog();
-        }
+			return value == null || value.Trim().Length == 0;
+		}
 	}
 }

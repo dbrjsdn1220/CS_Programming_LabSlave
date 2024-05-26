@@ -37,36 +37,11 @@ namespace Management_Books
 			list_copy.Columns.Add("반납 예정", (int)(list_copy.Width * 0.25));
 			list_copy.Columns.Add("책 존재", (int)(list_copy.Width * 0.10));
 
-			book = bookService.FindBook(bookId);
+			book = bookService.FindBookByBookId(bookId);
 			tb_category.Text = book.getCategory();
 			tb_title.Text = book.getTitle();
 			tb_author.Text = book.getAuthor();
-
-			List<BookCopieEntity> copyList = bookService.FindAllCopiesByBookId(book.getId());
-			List<LoanEntity> loanList = loanService.FindByCopyIdAll(bookId);
-
-			list_copyBook_print(copyList, loanList);
-		}
-
-		private void list_copyBook_print(List<BookCopieEntity> copyList, List<LoanEntity> loanList)
-		{
-			list_copy.Items.Clear();
-			ListViewItem item;
-
-			foreach (BookCopieEntity copy in copyList)
-			{
-				item = new ListViewItem(copy.getId().ToString());
-				item.SubItems.Add("---");
-				item.SubItems.Add("---");
-				item.SubItems.Add("---");
-				item.SubItems.Add("1");
-				list_copy.Items.Add(item);
-			}
-
-			foreach (LoanEntity copy in loanList)
-			{
-				item = new ListViewItem(l)
-			}
+			Request();
 		}
 
 		private void btn_borrow_Click(object sender, EventArgs e)
@@ -82,8 +57,43 @@ namespace Management_Books
 				MessageBox.Show("현재 도서관에 존재하지 않는 책입니다."); return;
 			}
 			long selectID = long.Parse(list_copy.Items[selectRow].SubItems[0].Text);
-			BorrowForm subFrom = new BorrowForm(selectID);
+			BorrowForm subFrom = new BorrowForm(selectID, tb_title.Text, tb_author.Text);
 			subFrom.ShowDialog();
+
+			Request();
+		}
+		
+		private void Request()
+		{
+			List<CopyBookEntity> copyList = bookService.FindAllBookIdByCopyBook(book.getBookId());
+			List<LoanEntity> loanList = loanService.FindByCopyIdAll(bookId);
+			list_copyBook_print(copyList, loanList);
+		}
+		
+		private void list_copyBook_print(List<CopyBookEntity> copyList, List<LoanEntity> loanList)
+		{
+			list_copy.Items.Clear();
+			ListViewItem item;
+
+			foreach (CopyBookEntity copy in copyList)
+			{
+				item = new ListViewItem(copy.getCopyBookId().ToString());
+				item.SubItems.Add("---");
+				item.SubItems.Add("---");
+				item.SubItems.Add("---");
+				item.SubItems.Add("1");
+				list_copy.Items.Add(item);
+			}
+
+			foreach (LoanEntity loan in loanList)
+			{
+				item = new ListViewItem(loan.getCopyBookId().ToString());
+				item.SubItems.Add(loan.getLoanId().ToString());
+				item.SubItems.Add(loan.getStartDate().ToString());
+				item.SubItems.Add(loan.getEndDate().ToString());
+				item.SubItems.Add(loan.getExtend().ToString());
+				list_copy.Items.Add(item);
+			}
 		}
 	}
 }

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Management_Books
 {
-	public delegate void DataGetEventHandler(string title, string author, string category, int copyCount);
+	public delegate void DataGetEventHandler(string category, string title, string author, int copyCount);
 
     public partial class InsertForm : Form
     {
@@ -34,43 +34,45 @@ namespace Management_Books
             cb_category.Items.Add("자소전");
             cb_category.Items.Add("희곡");
             cb_category.SelectedIndex = 0;
-        }
+			tb_bookCount.Text = "1";
+		}
 
         private void btn_reset_Click(object sender, EventArgs e)
         {
             cb_category.SelectedIndex = 0;
             tb_title.Text = "";
-            tb_author.Text = "";
-            tb_quantity.Text = "";
+			tb_author.Text = "";
+			tb_bookCount.Text = "1";
         }
 
         private void btn_insert_Click(object sender, EventArgs e)
         {
 			// 비교문으로 입력안된 부분 있으면 입력하라고 안내하는 코드 (황상욱)
 			// cb_category, tb_title, tb_author, tb_quantity 값 읽어서 DB에 저장하는 로직
-			if (tb_title.Text.Equals("")
-				|| tb_author.Text.Equals("")
-				|| tb_quantity.Text.Equals(""))
+			if (CheckString(tb_title.Text)
+				|| CheckString(tb_author.Text)
+				|| CheckString(tb_bookCount.Text))
 			{
 				MessageBox.Show("데이터를 전부 입력 해주세요."); return;
 			}
 
 			int copyCount;
-			if (!int.TryParse(tb_quantity.Text, out copyCount))
+			if (!int.TryParse(tb_bookCount.Text, out copyCount))
 			{
 				MessageBox.Show("숫자를 입력 해주세요."); return;
 			}
+			if (copyCount < 1)
+			{
+				MessageBox.Show("1 이상의 숫자를 입력 해주세요."); return;
+			}
 
-			DataSendEvent(tb_title.Text, tb_author.Text, cb_category.Text, int.Parse(tb_quantity.Text));
-
-			/*BookEntity book = new BookBuilder()
-									.title(tb_title.Text)
-									.author(tb_author.Text)
-									.category(cb_category.Text)
-									.copyCount(int.Parse(tb_quantity.Text))
-									.build();*/
-
+			DataSendEvent(cb_category.Text.Trim(), tb_title.Text.Trim(), tb_author.Text.Trim(), copyCount);
 			this.Close();
+		}
+
+		private bool CheckString(string value)
+		{
+			return value == null || value.Trim().Length == 0;
 		}
 	}
 }

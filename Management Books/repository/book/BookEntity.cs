@@ -8,7 +8,7 @@ namespace Management_Books.repository.book
 {
 	class BookEntity
 	{
-		private long id;
+		private long bookId;
 		private string title;
 		private string author;
 		private string category;
@@ -16,14 +16,14 @@ namespace Management_Books.repository.book
 
 		public BookEntity(long id, string title, string author, string category, int copyCount)
 		{
-			this.id = id;
+			this.bookId = id;
 			this.title = title;
 			this.author = author;
 			this.category = category;
 			this.copyCount = copyCount;
 		}
 
-		public long getId() { return id; }
+		public long getBookId() { return bookId; }
 
 		public string getTitle() { return title; }
 

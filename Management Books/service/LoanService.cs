@@ -1,5 +1,6 @@
 ﻿using Management_Books.repository.bookCopies;
 using Management_Books.repository.loan;
+using Mysqlx.Crud;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,29 +18,42 @@ namespace Management_Books.service
 			this.loanRepository = new LoanRepository();
 		}
 
-		public bool AddLoan(LoanEntity loan)
+		public string BookBorrow(long copyBookId, int studentId) 
 		{
-			return loanRepository.Insert(loan);
+			(int nowCount, int maxCount) = loanRepository.CheckBorrowCount(studentId);
+
+			if (nowCount < maxCount)
+			{
+				if (loanRepository.InsertLoan(copyBookId, studentId))
+				{
+					if (loanRepository.UpdateBookBorrowCount(studentId, nowCount))
+					{
+						return "대출 성공";
+					}
+					return "현재 빌린 책의 갯수, 갱신 실패";
+				}
+				return "대출 실패";
+			}
+			return "대출 불가능";
 		}
 
-		private List<LoanEntity> SelectCustomerIdByLoanId(long customer_id)
+		public List<LoanEntity> SelectCopyBookIdByLoans(long copyBookId)
 		{
-			return loanRepository.SelectCustomerId(customer_id);
+			return loanRepository.SelectCopyBookId(copyBookId);
 		}
 
-		// 2권 체크
-		public bool BookBorrow(long customer_id) 
+		public List<LoanEntity> SelectStudentIdByLoans(int studentId)
 		{
-			List<LoanEntity> result = SelectCustomerIdByLoanId(customer_id);
-			
-			
-			return false;
+			return loanRepository.SelectStudentId(studentId);
 		}
 
-		// 반납일 체크
+
+
+
+		/*// 반납일 체크
 		public bool BookReturn(long customer_id)
 		{
-			List<LoanEntity> result = SelectCustomerIdByLoanId(customer_id);
+			List<LoanEntity> result = SelectStudentIdByLoans(customer_id);
 
 
 			return false;
@@ -48,15 +62,15 @@ namespace Management_Books.service
 		// 연장 카운트 체크 + 연장되었다면?
 		public bool BookExtend(long customer_id)
 		{
-			List<LoanEntity> result = SelectCustomerIdByLoanId(customer_id);
+			List<LoanEntity> result = SelectStudentIdByLoans(customer_id);
 
 
 			return false;
-		}
+		}*/
 
 		public List<LoanEntity> FindByCopyIdAll(long bookId)
 		{
-			return loanRepository.GetLoansByCopyIds(bookId);
+			return loanRepository.GetLoansByCopyId(bookId);
 		}
 
 		private bool Block()

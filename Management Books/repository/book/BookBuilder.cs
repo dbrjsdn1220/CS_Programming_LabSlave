@@ -8,15 +8,15 @@ namespace Management_Books.repository.book
 {
 	class BookBuilder
 	{
-		private long Id;
+		private long BookId;
 		private string Title;
 		private string Author;
 		private string Category;
 		private int CopyCount;
 
-		public BookBuilder id(long Id)
+		public BookBuilder bookId(long BookId)
 		{
-			this.Id = Id;
+			this.BookId = BookId;
 			return this;
 		}
 
@@ -46,7 +46,7 @@ namespace Management_Books.repository.book
 
 		public BookEntity build()
 		{
-			return new BookEntity(Id, Title, Author, Category, CopyCount);
+			return new BookEntity(BookId, Title, Author, Category, CopyCount);
 		}
 	}
 }

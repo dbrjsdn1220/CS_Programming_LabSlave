@@ -32,6 +32,7 @@
 			this.list_book = new System.Windows.Forms.ListView();
 			this.cb_category = new System.Windows.Forms.ComboBox();
 			this.btn_search = new System.Windows.Forms.Button();
+			this.btn_reset = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// tb_search
@@ -39,7 +40,7 @@
 			this.tb_search.Location = new System.Drawing.Point(83, 12);
 			this.tb_search.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.tb_search.Name = "tb_search";
-			this.tb_search.Size = new System.Drawing.Size(567, 25);
+			this.tb_search.Size = new System.Drawing.Size(495, 25);
 			this.tb_search.TabIndex = 15;
 			// 
 			// list_book
@@ -70,7 +71,7 @@
 			// btn_search
 			// 
 			this.btn_search.Font = new System.Drawing.Font("돋움", 9F);
-			this.btn_search.Location = new System.Drawing.Point(658, 12);
+			this.btn_search.Location = new System.Drawing.Point(584, 10);
 			this.btn_search.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btn_search.Name = "btn_search";
 			this.btn_search.Size = new System.Drawing.Size(54, 29);
@@ -79,11 +80,24 @@
 			this.btn_search.UseVisualStyleBackColor = true;
 			this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
 			// 
+			// btn_reset
+			// 
+			this.btn_reset.Font = new System.Drawing.Font("돋움", 9F);
+			this.btn_reset.Location = new System.Drawing.Point(644, 10);
+			this.btn_reset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.btn_reset.Name = "btn_reset";
+			this.btn_reset.Size = new System.Drawing.Size(70, 29);
+			this.btn_reset.TabIndex = 28;
+			this.btn_reset.Text = "초기화";
+			this.btn_reset.UseVisualStyleBackColor = true;
+			this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
+			// 
 			// SearchForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(726, 471);
+			this.Controls.Add(this.btn_reset);
 			this.Controls.Add(this.tb_search);
 			this.Controls.Add(this.list_book);
 			this.Controls.Add(this.cb_category);
@@ -102,5 +116,6 @@
         private System.Windows.Forms.ListView list_book;
         private System.Windows.Forms.ComboBox cb_category;
         private System.Windows.Forms.Button btn_search;
-    }
+		private System.Windows.Forms.Button btn_reset;
+	}
 }

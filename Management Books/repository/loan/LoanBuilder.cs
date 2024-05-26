@@ -8,28 +8,28 @@ namespace Management_Books.repository.loan
 {
 	class LoanBuilder
 	{
-		private long Id;
-		private long CopyId;
-		private long CustomerId;
+		private long LoanId;
+		private long CopyBookId;
+		private int StudentId;
 		private DateTime StartDate;
 		private DateTime EndDate;
 		private bool Extend;
 
-		public LoanBuilder id(long id)
+		public LoanBuilder loanId(long LoanId)
 		{
-			this.Id = id;
+			this.LoanId = LoanId;
 			return this;
 		}
 
-		public LoanBuilder copyId(long copyId)
+		public LoanBuilder copyBookId(long CopyBookId)
 		{
-			this.CopyId = copyId;
+			this.CopyBookId = CopyBookId;
 			return this;
 		}
 
-		public LoanBuilder customerId(long customerId)
+		public LoanBuilder studentId(int StudentId)
 		{
-			this.CustomerId = customerId;
+			this.StudentId = StudentId;
 			return this;
 		}
 
@@ -53,7 +53,7 @@ namespace Management_Books.repository.loan
 
 		public LoanEntity build()
 		{
-			return new LoanEntity(Id, CopyId, CustomerId, StartDate, EndDate, Extend);
+			return new LoanEntity(LoanId, CopyBookId, StudentId, StartDate, EndDate, Extend);
 		}
 	}
 }

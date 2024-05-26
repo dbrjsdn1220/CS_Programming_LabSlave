@@ -1,6 +1,5 @@
 ﻿using Management_Books.repository.bookCopies;
 using MySql.Data.MySqlClient;
-using Mysqlx.Crud;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,19 +23,23 @@ namespace Management_Books.repository.book
 			conn = GetConnection(); conn.Open();
 		}
 
-		public bool InsertBookAndCopies(BookEntity book)
+		/**
+		 * @param	(book	: 단일 책에 대한 정보)
+		 * @return	단일 책에 대한 정보를 먼저 Books 테이블에 삽입 후,
+		 *			단일 책에 대한 정보를 지닌 사본 책들의 정보를 Copy_Books 테이블에 삽입했는 지,
+		 *			결과 여부(true, false)를 반환
+		 **/
+		public bool InsertBookAndCopyBooks(BookEntity book)
 		{
 			long bookId;
-			string queryBook = "INSERT INTO books(title, author, category, copy_count) VALUES(@title, @author, @category, @copy_count)";   // id, 
-			string queryBookCopies = "INSERT INTO book_copies(id, book_id, available, storeDate) VALUES(@id, @book_id, @available, @storeDate)";
-			DateTime date = DateTime.Now;
-			string storeDate = date.ToString("yyyy-MM-dd");
+			string BuyDate = DateTime.Now.ToString("yyyy-MM-dd");
+			string queryBooks = "INSERT INTO books(title, author, category, copy_count) VALUES(@title, @author, @category, @copy_count)";
+			string queryCopyBooks = "INSERT INTO copy_books(copyBook_id, book_id, alive, buyDate) VALUES(@copyBook_id, @book_id, @alive, @buyDate)";
 
-			// MySqlTransaction transaction = conn.BeginTransaction();
 			try
 			{
 				// Books 데이터 저장
-				cmd = GetCommand(queryBook, conn);// new MySqlCommand(queryBook, conn, transaction);
+				cmd = GetCommand(queryBooks, conn);
 				cmd.Parameters.Clear();
 				cmd.Parameters.AddWithValue("@title", book.getTitle());
 				cmd.Parameters.AddWithValue("@author", book.getAuthor());
@@ -45,24 +48,22 @@ namespace Management_Books.repository.book
 				cmd.ExecuteNonQuery();
 				bookId = cmd.LastInsertedId;
 
-				// BookCopies 데이터 저장
-				cmd = GetCommand(queryBookCopies, conn); // new MySqlCommand(queryBookCopies, conn, transaction);
+				// Copy_Books 데이터 저장
+				cmd = GetCommand(queryCopyBooks, conn);
 				for (int n = 1; n <= book.getCopyCount(); n++)
 				{
 					cmd.Parameters.Clear();
-					cmd.Parameters.AddWithValue("@id", (bookId * 1000) + n);
+					cmd.Parameters.AddWithValue("@copyBook_id", (bookId * 1000) + n);
 					cmd.Parameters.AddWithValue("@book_id", bookId);
-					cmd.Parameters.AddWithValue("@available", true);
-					cmd.Parameters.AddWithValue("@storeDate", storeDate);
+					cmd.Parameters.AddWithValue("@alive", true);
+					cmd.Parameters.AddWithValue("@buyDate", BuyDate);
 					cmd.ExecuteNonQuery();
 				}
-				// transaction.Commit();
 				return true;
 			}
 			catch (MySqlException e)
 			{
-				Console.WriteLine("[BookRepository.cs / Insert.method / Error : " + e.Message + "]");
-				// transaction.Rollback();
+				Console.WriteLine("[BookRepository.cs / InsertBookAndCopyBooks.method / Error : " + e.Message + "]");
 			}
 			finally
 			{
@@ -72,30 +73,35 @@ namespace Management_Books.repository.book
 			return false;
 		}
 
-		public bool InsertCopies(long bookId, int start, int end)
+		/**
+		 * @param	(bookId	: 단일 책 PK값 정보)
+		 * @param	(start	: 사본 책의 마지막 PK값 이어서 쓰기)
+		 * @param	(end	: 사본 책의 PK값 종료 시점)
+		 * @return	단일 책에 대한 정보를 지닌 사본 책들의 정보를 Copy_Books 테이블에 삽입했는 지,
+		 *			결과 여부(true, false)를 반환
+		 **/
+		public bool InsertCopyBooks(long bookId, int start, int end)
 		{
-			string query = "INSERT INTO book_copies(id, book_id, available, storeDate) VALUES(@id, @book_id, @available, @storeDate)";
-			DateTime date = DateTime.Now;
-			string storeDate = date.ToString("yyyy-MM-dd");
+			string BuyDate = DateTime.Now.ToString("yyyy-MM-dd");
+			string queryCopyBooks = "INSERT INTO copy_books(copyBook_id, book_id, alive, buyDate) VALUES(@copyBook_id, @book_id, @alive, @buyDate)";
 
 			try
 			{
-				cmd = GetCommand(query, conn);
-
+				cmd = GetCommand(queryCopyBooks, conn);
 				for (int n = start + 1; n <= end; n++)
 				{
 					cmd.Parameters.Clear();
-					cmd.Parameters.AddWithValue("@id", (bookId * 1000) + n);
+					cmd.Parameters.AddWithValue("@copyBook_id", (bookId * 1000) + n);
 					cmd.Parameters.AddWithValue("@book_id", bookId);
-					cmd.Parameters.AddWithValue("@available", true);
-					cmd.Parameters.AddWithValue("@storeDate", storeDate);
+					cmd.Parameters.AddWithValue("@alive", true);
+					cmd.Parameters.AddWithValue("@buyDate", BuyDate);
 					cmd.ExecuteNonQuery();
 				}
 				return true;
 			}
 			catch (MySqlException e)
 			{
-				Console.WriteLine("[BookRepository.cs / InsertCopies.method / Error : " + e.Message + "]");
+				Console.WriteLine("[BookRepository.cs / InsertCopyBooks.method / Error : " + e.Message + "]");
 			}
 			finally
 			{
@@ -105,27 +111,21 @@ namespace Management_Books.repository.book
 			return false;
 		}
 
+		/**
+		 * @param	(bookId	: 단일 책 PK값 정보)
+		 * @return	단일 책 PK와 일치하는, 단일 책의 정보를 가져오기
+		 **/
 		public BookEntity SelectBookId(long bookId)
 		{
-			string query = "SELECT * FROM books WHERE id = @bookId";
+			string queryBooks = "SELECT * FROM books WHERE book_id = @book_id";
 
 			try
 			{
-				cmd = GetCommand(query, conn);
+				cmd = GetCommand(queryBooks, conn);
 				cmd.Parameters.Clear();
-				cmd.Parameters.AddWithValue("@bookId", bookId);
+				cmd.Parameters.AddWithValue("@book_id", bookId);
 				reader = cmd.ExecuteReader();
-
-				if (reader.Read())
-				{
-					return new BookBuilder()
-								.id(reader.GetInt64(0))
-								.title(reader.GetString(1))
-								.author(reader.GetString(2))
-								.category(reader.GetString(3))
-								.copyCount(reader.GetInt32(4))
-								.build();
-				}
+				return LoadBookData(reader);
 			}
 			catch (MySqlException e)
 			{
@@ -139,17 +139,21 @@ namespace Management_Books.repository.book
 			return new BookBuilder().build();
 		}
 
+		/**
+		 * @param	(title	: 검색할 책 제목의 문자 일부분)
+		 * @return	책 제목의 문자 일부분과 부분적으로 일치하는 단일 책의 정보들을 전부 가져오기
+		 **/
 		public List<BookEntity> SelectTitle(string title)
 		{
-			string query = "SELECT * FROM books WHERE title LIKE @title";
+			string queryBooks = "SELECT * FROM books WHERE title LIKE @title";
 
 			try
 			{
-				cmd = GetCommand(query, conn);
+				cmd = GetCommand(queryBooks, conn);
 				cmd.Parameters.Clear();
-				cmd.Parameters.AddWithValue("@title1", "%" + title + "%");
+				cmd.Parameters.AddWithValue("@title", "%" + title + "%");
 				reader = cmd.ExecuteReader();
-				return LoadDataList(reader);
+				return LoadBookDataList(reader);
 			}
 			catch (MySqlException e)
 			{
@@ -163,17 +167,21 @@ namespace Management_Books.repository.book
 			return new List<BookEntity>();
 		}
 
+		/**
+		 * @param	(author	: 검색할 책 작성자의 문자 일부분)
+		 * @return	책 작성자의 문자 일부분과 부분적으로 일치하는 단일 책의 정보들을 전부 가져오기
+		 **/
 		public List<BookEntity> SelectAuthor(string author)
 		{
-			string query = "SELECT * FROM books WHERE author LIKE @author";
+			string queryBooks = "SELECT * FROM books WHERE author LIKE @author";
 
 			try
 			{
-				cmd = GetCommand(query, conn);
+				cmd = GetCommand(queryBooks, conn);
 				cmd.Parameters.Clear();
 				cmd.Parameters.AddWithValue("@author", "%" + author + "%");
 				reader = cmd.ExecuteReader();
-				return LoadDataList(reader);
+				return LoadBookDataList(reader);
 			}
 			catch (MySqlException e)
 			{
@@ -186,16 +194,19 @@ namespace Management_Books.repository.book
 			return new List<BookEntity>();
 		}
 
+		/**
+		 * @return	데이터베이스 Books 테이블 내의 모든 데이터를 가져오기
+		 **/
 		public List<BookEntity> GetAllData()
 		{
-			string query = "SELECT * FROM books";
+			string queryBooks = "SELECT * FROM books";
 
 			try
 			{
-				cmd = GetCommand(query, conn);
+				cmd = GetCommand(queryBooks, conn);
 				cmd.Parameters.Clear();
 				reader = cmd.ExecuteReader();
-				return LoadDataList(reader);
+				return LoadBookDataList(reader);
 			}
 			catch (MySqlException e)
 			{
@@ -209,50 +220,52 @@ namespace Management_Books.repository.book
 			return new List<BookEntity>();
 		}
 
-		public List<BookCopieEntity> FindAllCopyBook(long bookId)
+		/**
+		 * @param	(bookId	: 단일 책 PK값 정보)
+		 * @return	단일 책 PK와 일치하는, 사본 책들의 정보를 Copy_Books 테이블에서 가져오기
+		 **/
+		public List<CopyBookEntity> FindAllCopyBook(long bookId)
 		{
-			string query = "SELECT * FROM book_copies WHERE book_id = @bookId";
-			List<BookCopieEntity> copyBookList = new List<BookCopieEntity>();
+			string queryCopyBooks = "SELECT * FROM copy_books WHERE book_id = @book_id";
 
 			try
 			{
-				cmd = GetCommand(query, conn);
+				cmd = GetCommand(queryCopyBooks, conn);
 				cmd.Parameters.Clear();
-				cmd.Parameters.AddWithValue("@bookId", bookId);
+				cmd.Parameters.AddWithValue("@book_id", bookId);
 				reader = cmd.ExecuteReader();
-
-				while (reader.Read())
-				{
-					copyBookList.Add(new BookCopieBuilder()
-											.id(reader.GetInt64(0))
-											.book_id(reader.GetInt64(1))
-											.available(reader.GetBoolean(2))
-											.date(reader.GetDateTime(3))
-											.build());
-				}
-				return copyBookList;
+				return LoadCopyBookDataList(reader);
 			}
 			catch (MySqlException e)
 			{
-				Console.WriteLine("[BookRepository.cs / SelectBookId.method / Error : " + e.Message + "]");
+				Console.WriteLine("[BookRepository.cs / FindAllCopyBook.method / Error : " + e.Message + "]");
 			}
 			finally
 			{
 				ReaderClose();
 				CommandClose();
 			}
-			return copyBookList;
+			return new List<CopyBookEntity>();
 		}
 
-		// first : book_id // second : copy_count
-		public Tuple<long, int> CheckBookTitleExists(string title, int plusCount)
+		/**
+		 * @param	(title		: 단일 책의 제목)
+		 * @param	(countPlus	: 추가되는 사본 책의 갯수)
+		 * @return	Books 테이블 내에 제목과 완전히 일치하는 행의 copy_count 값을 갱신해준 후에,
+		 *			[first : 단일 책 PK / second : 추가되는 책의 갯수]를 반환하고
+		 *			
+		 *			만일 단일 책 데이터가 존재하지 않는다면, [-1, -1]을 반환하여, 데이터가 없음을 알린다.
+		 **/
+		public Tuple<long, int> CheckBookTitleExists(string title, int countPlus)
 		{
-			long bookId = -1; int copyCount = -1;
-			string selectQeury = "SELECT id, copy_count FROM books WHERE title = @title LIMIT 1";
-			string updateQuery = "UPDATE books SET copy_count = @copy_count WHERE id = @bookId";
+			long bookId = -1;
+			int copyCount = -1;
+			string selectQeury = "SELECT book_id, copy_count FROM books WHERE title = @title LIMIT 1";
+			string updateQuery = "UPDATE books SET copy_count = @copy_count WHERE book_id = @book_id";
 
 			try
 			{
+				// Books 테이블 내에 제목과 완전히 일치하는 행의 데이터 값 일부를 가져오기
 				cmd = GetCommand(selectQeury, conn);
 				cmd.Parameters.Clear();
 				cmd.Parameters.AddWithValue("@title", title);
@@ -260,14 +273,16 @@ namespace Management_Books.repository.book
 
 				if (reader.Read())
 				{
-					bookId = reader.GetInt64("id");
+					bookId = reader.GetInt64("book_id");
 					copyCount = reader.GetInt32("copy_count");
 					ReaderClose();
 				}
+
+				// Books 테이블의 PK값과 일치하는 행의 copy_count 값을 갱신
 				cmd = GetCommand(updateQuery, conn);
 				cmd.Parameters.Clear();
-				cmd.Parameters.AddWithValue("@copy_count", copyCount + plusCount);
-				cmd.Parameters.AddWithValue("@bookId", bookId);
+				cmd.Parameters.AddWithValue("@copy_count", copyCount + countPlus);
+				cmd.Parameters.AddWithValue("@book_id", bookId);
 				cmd.ExecuteNonQuery();
 
 				return Tuple.Create(bookId, copyCount);
@@ -284,22 +299,88 @@ namespace Management_Books.repository.book
 			return Tuple.Create(bookId, copyCount);
 		}
 
-		private List<BookEntity> LoadDataList(MySqlDataReader reader)
+		// ======================================================================================================
+
+		/**
+		 * @param	(reader	: 데이터베이스 Books 테이블과 상호작용하여 나온 결과물)
+		 * @return	데이터베이스와 상호작용하여 나온 단일 결과물을 객체 양식에 맞게끔 변환 해주는 공용 method
+		 **/
+		private BookEntity LoadBookData(MySqlDataReader reader)
+		{
+			if (reader.Read())
+			{
+				return new BookBuilder()
+							.bookId(reader.GetInt64(0))
+							.title(reader.GetString(1))
+							.author(reader.GetString(2))
+							.category(reader.GetString(3))
+							.copyCount(reader.GetInt32(4))
+							.build();
+			}
+			return new BookBuilder().build();
+		}
+
+		/**
+		 * @param	(reader	: 데이터베이스 Books 테이블과 상호작용하여 나온 결과물)
+		 * @return	데이터베이스와 상호작용하여 나온 다중 결과물을 객체 양식에 맞게끔 변환 해주는 공용 method
+		 **/
+		private List<BookEntity> LoadBookDataList(MySqlDataReader reader)
 		{
 			List<BookEntity> bookList = new List<BookEntity>();
-
 			while (reader.Read())
 			{
 				bookList.Add(new BookBuilder()
-								.id(reader.GetInt64(0))
-								.author(reader.GetString(1))
-								.title(reader.GetString(2))
-								.category(reader.GetString(3))
-								.copyCount(reader.GetInt32(4))
-								.build());
+									.bookId(reader.GetInt64(0))
+									.title(reader.GetString(1))
+									.author(reader.GetString(2))
+									.category(reader.GetString(3))
+									.copyCount(reader.GetInt32(4))
+									.build());
 			}
 			return bookList;
 		}
+
+		/**
+		 * @param	(reader	: 데이터베이스 CopyBooks 테이블과 상호작용하여 나온 결과물)
+		 * @return	데이터베이스와 상호작용하여 나온 단일 결과물을 객체 양식에 맞게끔 변환 해주는 공용 method
+		 **/
+		private CopyBookEntity LoadCopyBookData(MySqlDataReader reader)
+		{
+			if (reader.Read())
+			{
+				return new CopyBookBuilder()
+							.copyBookId(reader.GetInt64(0))
+							.bookId(reader.GetInt64(1))
+							.alive(reader.GetBoolean(2))
+							.buyDate(reader.GetDateTime(3))
+							.build();
+			}
+			return new CopyBookBuilder().build();
+		}
+
+		/**
+		 * @param	(reader	: 데이터베이스 CopyBooks 테이블과 상호작용하여 나온 결과물)
+		 * @return	데이터베이스와 상호작용하여 나온 다중 결과물을 객체 양식에 맞게끔 변환 해주는 공용 method
+		 **/
+		private List<CopyBookEntity> LoadCopyBookDataList(MySqlDataReader reader)
+		{
+			List<CopyBookEntity> copyBookList = new List<CopyBookEntity>();
+			while (reader.Read())
+			{
+				copyBookList.Add(new CopyBookBuilder()
+										.copyBookId(reader.GetInt64(0))
+										.bookId(reader.GetInt64(1))
+										.alive(reader.GetBoolean(2))
+										.buyDate(reader.GetDateTime(3))
+										.build());
+			}
+			return copyBookList;
+		}
+
+		// ======================================================================================================
+		/**
+		 * 데이터베이스 연결과 관련된 기능의 메모리 할당을 해제하는 공용 기능
+		 **/
 
 		private void ReaderClose()
 		{
@@ -312,7 +393,7 @@ namespace Management_Books.repository.book
 			}
 			catch (MySqlException e)
 			{
-				Console.WriteLine("\n\nreader closing error : " + e.Message + "\n\n");
+				Console.WriteLine("[BookRepository.cs / ReaderClose.method / Error : " + e.Message + "]");
 			}
 			finally
 			{
@@ -334,7 +415,7 @@ namespace Management_Books.repository.book
 			}
 			catch (MySqlException e)
 			{
-				Console.WriteLine("\n\ncommand disposing error : " + e.Message + "\n\n");
+				Console.WriteLine("[BookRepository.cs / CommandClose.method / Error : " + e.Message + "]");
 			}
 		}
 
@@ -349,7 +430,7 @@ namespace Management_Books.repository.book
 			}
 			catch (MySqlException e)
 			{
-				Console.WriteLine("\n\nconnection closing  error : " + e.Message + "\n\n");
+				Console.WriteLine("[BookRepository.cs / ConnectionClose.method / Error : " + e.Message + "]");
 			}
 			finally
 			{

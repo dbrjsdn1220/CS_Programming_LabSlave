@@ -49,7 +49,15 @@ namespace Management_Books
             list_book_print(bookList);
         }
 
-        private void list_book_print(List<BookEntity> bookList)
+        
+
+		private void btn_reset_Click(object sender, EventArgs e)
+		{
+			List<BookEntity> bookList = bookService.GetAllBooks();
+			list_book_print(bookList);
+		}
+
+		private void list_book_print(List<BookEntity> bookList)
         {
             list_book.Items.Clear();
             ListViewItem item;
@@ -68,7 +76,7 @@ namespace Management_Books
 		{
 			List<BookEntity> bookList = bookService.GetAllBooks();
 			int selectRow = list_book.SelectedItems[0].Index;
-			long selectID = bookList[selectRow].getId();
+			long selectID = bookList[selectRow].getBookId();
 			BookDetailForm_user subFrom = new BookDetailForm_user(selectID);
 			subFrom.ShowDialog();
 		}

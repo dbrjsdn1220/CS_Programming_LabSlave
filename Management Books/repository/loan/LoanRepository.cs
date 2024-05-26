@@ -19,29 +19,28 @@ namespace Management_Books.repository.loan
 			conn = GetConnection(); conn.Open();
 		}
 
-		public bool Insert(LoanEntity loan)
+		public bool InsertLoan(long copyBookId, int studentId)
 		{
-			string query = "INSERT INTO VALUES(@id, @copyId, @customersId, @startDate, @endDate, @extend)";
-	
 			string startDate = DateTime.Now.ToString("yyyy-MM-dd");
-			string endDate = DateTime.Today.AddDays(7).ToString();
+			string endDate = DateTime.Today.AddDays(7).ToString("yyyy-MM-dd");
+			
+			string queryLoans = "INSERT INTO loans(copyBook_id, student_id, start_date, end_date, extend) VALUES(@copyBook_id, @student_id, @start_date, @end_date, @extend)";
 
 			try
 			{
-				cmd = GetCommand(query, conn);
+				cmd = GetCommand(queryLoans, conn);
 				cmd.Parameters.Clear();
-				cmd.Parameters.AddWithValue("@copyId", loan.getCopyId());
-				cmd.Parameters.AddWithValue("@customersId", loan.getCustomerId());
-				cmd.Parameters.AddWithValue("@startDate", startDate);
-				cmd.Parameters.AddWithValue("@endDate", endDate);
-				cmd.Parameters.AddWithValue("@extend", false);
+				cmd.Parameters.AddWithValue("@copyBook_id", copyBookId);
+				cmd.Parameters.AddWithValue("@student_id", studentId);
+				cmd.Parameters.AddWithValue("@start_date", startDate);
+				cmd.Parameters.AddWithValue("@end_date", endDate);
+				cmd.Parameters.AddWithValue("@extend", 0);
 				cmd.ExecuteNonQuery();
-
 				return true;
 			}
 			catch (MySqlException e)
 			{
-				Console.WriteLine("[LoanRepository.cs / Insert.method / Error : " + e.Message + "]");
+				Console.WriteLine("[LoanRepository.cs / InsertLoan.method / Error : " + e.Message + "]");
 			}
 			finally
 			{
@@ -51,94 +50,179 @@ namespace Management_Books.repository.loan
 			return false;
 		}
 
-		public List<LoanEntity> SelectCustomerId(long customer_id)
+		public bool UpdateBookBorrowCount(int studentId, int nowCount)
 		{
-			string query = "SELECT * FROM loan WHERE customers_id = @customers_id";
-			List<LoanEntity> loanList = new List<LoanEntity>();
+			string queryStudents = "UPDATE students SET nowCount = @nowCount WHERE student_id = @student_id";
 
 			try
 			{
-				cmd = GetCommand(query, conn);
+				cmd = GetCommand(queryStudents, conn);
 				cmd.Parameters.Clear();
-				cmd.Parameters.AddWithValue("@customers_id", customer_id);
-				reader = cmd.ExecuteReader();
-
-				while (reader.Read())
-				{
-					loanList.Add(new LoanBuilder()
-						.id(reader.GetInt64(0))
-						.copyId(reader.GetInt64(1))
-						.customerId(reader.GetInt64(2))
-						.build());
-				}
+				cmd.Parameters.AddWithValue("@nowCount", nowCount + 1);
+				cmd.Parameters.AddWithValue("@student_id", studentId);
+				cmd.ExecuteNonQuery();
+				return true;
 			}
 			catch (MySqlException e)
 			{
-				Console.WriteLine("[LoanRepository.cs / SelectCustomerId.method / Error : " + e.Message + "]");
+				Console.WriteLine("[LoanRepository.cs / UpdateBookBorrowCount.method / Error : " + e.Message + "]");
 			}
 			finally
 			{
 				ReaderClose();
 				CommandClose();
 			}
-			return loanList;
-		}
-
-		public bool Update(LoanEntity loan)
-		{
-
-
 			return false;
 		}
 
-		public List<LoanEntity> GetLoansByCopyIds(long bookId)
+		public List<LoanEntity> SelectCopyBookId(long copyBookId)
 		{
-			// string query = "SELECT * FROM loan WHERE ";
-			string query = "SELECT loan.* " +
-							"FROM book_copies " +
-							"INNER JOIN loan ON loan.book_copy_id = book_copies.id " +
-							"WHERE book_copies.id IN (@bookId)";
-			List<LoanEntity> loanList = new List<LoanEntity>();
+			string queryLoans = "SELECT * FROM loans WHERE copyBook_id = @copyBook_id";
 
 			try
 			{
-				cmd = GetCommand(query, conn);
+				cmd = GetCommand(queryLoans, conn);
 				cmd.Parameters.Clear();
-				cmd.Parameters.AddWithValue("@bookId", bookId);
+				cmd.Parameters.AddWithValue("@copyBook_id", copyBookId);
+				reader = cmd.ExecuteReader();
+				return LoadLoanDataList(reader);
+			}
+			catch (MySqlException e)
+			{
+				Console.WriteLine("[LoanRepository.cs / SelectCopyBookId.method / Error : " + e.Message + "]");
+			}
+			finally
+			{
+				ReaderClose();
+				CommandClose();
+			}
+			return new List<LoanEntity>();
+		}
+
+		public List<LoanEntity> SelectStudentId(int studentId)
+		{
+			string queryLoans = "SELECT * FROM loans WHERE student_id = @student_id";
+
+			try
+			{
+				cmd = GetCommand(queryLoans, conn);
+				cmd.Parameters.Clear();
+				cmd.Parameters.AddWithValue("@student_id", studentId);
+				reader = cmd.ExecuteReader();
+				return LoadLoanDataList(reader);
+			}
+			catch (MySqlException e)
+			{
+				Console.WriteLine("[LoanRepository.cs / SelectStudentId.method / Error : " + e.Message + "]");
+
+			}
+			finally
+			{
+				ReaderClose();
+				CommandClose();
+			}
+			return new List<LoanEntity>();
+		}
+
+		public Tuple<int, int> CheckBorrowCount(int studentId)
+		{
+			int nowCount = -1;
+			int maxCount = -1;
+			string queryStudents = "SELECT nowCount, maxCount FROM students WHERE student_id = @student_id";
+
+			try
+			{
+				cmd = GetCommand(queryStudents, conn);
+				cmd.Parameters.Clear();
+				cmd.Parameters.AddWithValue("@student_id", studentId);
 				reader = cmd.ExecuteReader();
 
-				while (reader.Read())
+				if (reader.Read())
 				{
-					Console.WriteLine(
-						reader.GetInt64(0) + " / " +
-						reader.GetInt64(1) + " / " +
-						reader.GetInt64(2) + " / " +
-						reader.GetDateTime(3) + " / " +
-						reader.GetDateTime(4) + " / " +
-						reader.GetBoolean(5)
-					);
-					loanList.Add(new LoanBuilder()
-									.id(reader.GetInt64(0))
-									.copyId(reader.GetInt64(1))
-									.customerId(reader.GetInt64(2))
+					nowCount = reader.GetInt32("nowCount");
+					maxCount = reader.GetInt32("maxCount");
+				}
+				return Tuple.Create(nowCount, maxCount);
+			}
+			catch (MySqlException e)
+			{
+				Console.WriteLine("[LoanRepository.cs / CheckBorrowCount.method / Error : " + e.Message + "]");
+			}
+			finally
+			{
+				ReaderClose();
+				CommandClose();
+			}
+			return Tuple.Create(nowCount, maxCount);
+		}
+
+		public List<LoanEntity> GetLoansByCopyId(long bookId)
+		{
+			string queryLoans = "SELECT loans.* " +
+								"FROM copy_books " +
+								"INNER JOIN loans ON copy_books.copyBook_id = loans.copyBook_id " +
+								"WHERE copy_books.book_id IN (@book_id)";
+
+			try
+			{
+				cmd = GetCommand(queryLoans, conn);
+				cmd.Parameters.Clear();
+				cmd.Parameters.AddWithValue("@book_id", bookId);
+				reader = cmd.ExecuteReader();
+				return LoadLoanDataList(reader);
+			}
+			catch (MySqlException e)
+			{
+				Console.WriteLine("[LoanRepository.cs / GetLoansByCopyId.method / Error : " + e.Message + "]");
+			}
+			finally
+			{
+				ReaderClose();
+				CommandClose();
+			}
+			return new List<LoanEntity>();
+		}
+
+		// ======================================================================================================
+
+		private LoanEntity LoadLoanData(MySqlDataReader reader)
+		{
+			if (reader.Read())
+			{
+				return new LoanBuilder()
+							.loanId(reader.GetInt64(0))
+							.copyBookId(reader.GetInt64(1))
+							.studentId(reader.GetInt32(2))
+							.startDate(reader.GetDateTime(3))
+							.endDate(reader.GetDateTime(4))
+							.extend(reader.GetBoolean(5))
+							.build();
+			}
+			return new LoanBuilder().build();
+		}
+
+		private List<LoanEntity> LoadLoanDataList(MySqlDataReader reader)
+		{
+			List<LoanEntity> loanList = new List<LoanEntity>();
+			while (reader.Read())
+			{
+				loanList.Add(new LoanBuilder()
+									.loanId(reader.GetInt64(0))
+									.copyBookId(reader.GetInt64(1))
+									.studentId(reader.GetInt32(2))
 									.startDate(reader.GetDateTime(3))
 									.endDate(reader.GetDateTime(4))
 									.extend(reader.GetBoolean(5))
 									.build());
-				}
-				return loanList;
-			}
-			catch (MySqlException e)
-			{
-				Console.WriteLine("[LoanRepository.cs / GetLoansByCopyIds.method / Error : " + e.Message + "]");
-			}
-			finally
-			{
-				ReaderClose();
-				CommandClose();
 			}
 			return loanList;
 		}
+
+		// ======================================================================================================
+		
+		/**
+		 * 데이터베이스 연결과 관련된 기능의 메모리 할당을 해제하는 공용 기능
+		 **/
 
 		private void ReaderClose()
 		{
@@ -151,7 +235,7 @@ namespace Management_Books.repository.loan
 			}
 			catch (MySqlException e)
 			{
-				Console.WriteLine("\n\nreader closing error : " + e.Message + "\n\n");
+				Console.WriteLine("[LoanRepository.cs / ReaderClose.method / Error : " + e.Message + "]");
 			}
 			finally
 			{
@@ -173,7 +257,7 @@ namespace Management_Books.repository.loan
 			}
 			catch (MySqlException e)
 			{
-				Console.WriteLine("\n\ncommand disposing error : " + e.Message + "\n\n");
+				Console.WriteLine("[LoanRepository.cs / CommandClose.method / Error : " + e.Message + "]");
 			}
 		}
 
@@ -188,7 +272,7 @@ namespace Management_Books.repository.loan
 			}
 			catch (MySqlException e)
 			{
-				Console.WriteLine("\n\nconnection closing  error : " + e.Message + "\n\n");
+				Console.WriteLine("[LoanRepository.cs / ConnectionClose.method / Error : " + e.Message + "]");
 			}
 			finally
 			{

@@ -142,8 +142,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="repository\book\BookCopieBuilder.cs" />
-    <Compile Include="repository\book\BookCopieEntity.cs" />
+    <Compile Include="repository\book\CopyBookBuilder.cs" />
+    <Compile Include="repository\book\CopyBookEntity.cs" />
     <Compile Include="repository\book\BookBuilder.cs" />
     <Compile Include="repository\book\BookEntity.cs" />
     <Compile Include="repository\book\BookRepository.cs" />
@@ -164,6 +164,7 @@
     <Compile Include="service\BookService.cs" />
     <Compile Include="service\LoanService.cs" />
     <Compile Include="service\MemberService.cs" />
+    <Compile Include="SQL\studentDataPush.cs" />
     <EmbeddedResource Include="BookDetailForm.resx">
       <DependentUpon>BookDetailForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,6 +212,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="SQL\Yu_Geonu_Table.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
