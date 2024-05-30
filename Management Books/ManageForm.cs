@@ -14,28 +14,28 @@ namespace Management_Books
 {
 	public partial class ManageForm : Form
 	{
-		string admin;
+		string userId;
 		private BookEntity book;
 		private BookService bookService;
 
-		public ManageForm(string name)
+		public ManageForm(string userId)
 		{
 			InitializeComponent();
-			admin = name;
+			this.userId = userId;
 			bookService = new BookService();
 		}
 
 		private void ManageFoam_Load(object sender, EventArgs e)
 		{
-			label_name.Text = admin + "님";
-			list_book.Columns.Add("장르", (int)(list_book.Width * 0.12));
+			lb_userId.Text = "[관리자 : " + userId + "]";
+			list_book.Columns.Add("장르", (int)(list_book.Width * 0.145));
 			list_book.Columns.Add("저자", (int)(list_book.Width * 0.2));
-			list_book.Columns.Add("제목", (int)(list_book.Width * 0.56));
+			list_book.Columns.Add("제목", (int)(list_book.Width * 0.55));
 			list_book.Columns.Add("잔권", (int)(list_book.Width * 0.1));
 
-			cb_category.Items.Add("제목");
-			cb_category.Items.Add("저자");
-			cb_category.SelectedIndex = 0;
+			cb_bookCategory.Items.Add("제목");
+			cb_bookCategory.Items.Add("저자");
+			cb_bookCategory.SelectedIndex = 0;
 
 			List<BookEntity> bookList = bookService.GetAllBooks();
 			list_book_print(bookList);
@@ -46,6 +46,8 @@ namespace Management_Books
 			InsertForm subFoam = new InsertForm();
 			subFoam.DataSendEvent += new DataGetEventHandler(this.DataGet);
 			subFoam.ShowDialog();
+
+			if (CheckDate(book)) { return; }
 
 			if (CheckString(book.getTitle())
 				|| CheckString(book.getAuthor())
@@ -70,7 +72,7 @@ namespace Management_Books
 				MessageBox.Show("검색어를 입력 해주세요."); return;
 			}
 
-			List<BookEntity> bookList = bookService.SearchOption(cb_category.Text, tb_search.Text);
+			List<BookEntity> bookList = bookService.SearchOption(cb_bookCategory.Text, tb_search.Text);
 			list_book_print(bookList);
 		}
 
@@ -114,6 +116,10 @@ namespace Management_Books
 						.build();
 		}
 
+		private bool CheckDate(BookEntity book)
+		{
+			return book == null;
+		}
 
 		// String.IsNullOrWhiteSpace(value) 도 이하 동일
 		private bool CheckString(string value)

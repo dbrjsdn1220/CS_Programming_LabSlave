@@ -40,7 +40,7 @@ namespace Management_Books.service
 		public string BookReturn(long copyBookId, int studentId)
 		{
 			(int nowCount, int maxCount) = loanRepository.CheckBorrowCount(studentId);
-
+			
 			if (nowCount > 0)
 			{
 				if (loanRepository.DeleteLoan(copyBookId, studentId))
@@ -77,7 +77,7 @@ namespace Management_Books.service
 		 **/
 		public List<LoanEntity> FindByCopyIdAll(long bookId)
 		{
-			return loanRepository.GetLoansByCopyId(bookId);
+			return loanRepository.GetCopyBookIdByLoans(bookId);
 		}
 	}
 }

@@ -17,18 +17,18 @@ namespace Management_Books
     {
 		private long copyBookId;
 		private int studentId;
-		private string title;
-		private string author;
+		private string bookTitle;
+		private string bookAuthor;
 		private BookService bookService;
 		private LoanService loanService;
 
-        public BorrowForm(long copyBookId, int studentId, string title, string author)
+        public BorrowForm(long copyBookId, int studentId, string bookTitle, string bookAuthor)
         {
             InitializeComponent();
 			this.copyBookId = copyBookId;
 			this.studentId = studentId;
-			this.title = title;
-			this.author = author;
+			this.bookTitle = bookTitle;
+			this.bookAuthor = bookAuthor;
 
 			bookService = new BookService();
 			loanService = new LoanService();
@@ -37,21 +37,18 @@ namespace Management_Books
 		private void BorrowForm_Load(object sender, EventArgs e)
 		{
 			tb_bookId.Text = copyBookId.ToString();
-			tb_bookTitle.Text = title;
-			tb_bookAuthor.Text = author;
+			tb_bookTitle.Text = bookTitle;
+			tb_bookAuthor.Text = bookAuthor;
 
-			cb_grade.Items.Add("학년");
-			for (int n = 1; n < 7; n++) { cb_grade.Items.Add(n.ToString()); }
+			for (int n = 1; n < 7; n++) { cb_grade.Items.Add("0" + n.ToString()); }
 			cb_grade.SelectedIndex = 0;
 
-			cb_class.Items.Add("반");
 			for (int n = 1; n < 11; n++){
 				if (n < 10) { cb_class.Items.Add("0" + n.ToString()); continue; }
 				cb_class.Items.Add(n.ToString());
 			}
 			cb_class.SelectedIndex = 0;
 
-			cb_number.Items.Add("번호");
 			for (int n = 1; n < 31; n++){
 				if (n < 10) { cb_number.Items.Add("0" + n.ToString()); continue; }
 				cb_number.Items.Add(n.ToString());
@@ -81,7 +78,7 @@ namespace Management_Books
 			str = loanService.BookBorrow(copyBookId, studentId);
 			if (!str.Equals("대출 성공"))
 			{
-				MessageBox.Show(str); return;
+				MessageBox.Show("[이용자 : " + studentId + "] : " + str); return;
 			}
 
 			result = bookService.BookBorrow(copyBookId);
@@ -97,8 +94,22 @@ namespace Management_Books
 		private void btn_return_Click(object sender, EventArgs e)
 		{
 			bool result = false;
-			int studentId;
+			int copyBookId, studentId;
 			string str;
+
+			if (list_loan.SelectedItems.Count == 0)
+			{
+				MessageBox.Show("반납할 도서를 선택해 주세요."); return;
+			}
+
+			ListViewItem selectedItem = list_loan.SelectedItems[0];
+			string selectedCopyBookId = selectedItem.SubItems[0].Text;
+			if (!int.TryParse(selectedCopyBookId, out copyBookId))
+			{
+				MessageBox.Show("반납할 도서를 선택해 주세요."); return;
+			}
+
+
 			if (!int.TryParse(cb_grade.Text + cb_class.Text + cb_number.Text, out studentId))
 			{
 				MessageBox.Show("학년, 반, 번호를 선택 해주세요."); return;
@@ -107,7 +118,7 @@ namespace Management_Books
 			str = loanService.BookReturn(copyBookId, studentId);
 			if (!str.Equals("반납 성공"))
 			{
-				MessageBox.Show(str); return;
+				MessageBox.Show("[이용자 : " + studentId + "] : " + str); return;
 			}
 
 			result = bookService.BookReturn(copyBookId);

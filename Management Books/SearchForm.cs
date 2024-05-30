@@ -30,9 +30,9 @@ namespace Management_Books
             list_book.Columns.Add("제목", (int)(list_book.Width * 0.58));
             list_book.Columns.Add("잔권", (int)(list_book.Width * 0.1));
 
-            cb_category.Items.Add("제목");
-            cb_category.Items.Add("저자");
-            cb_category.SelectedIndex = 0;
+            cb_bookCategory.Items.Add("제목");
+            cb_bookCategory.Items.Add("저자");
+            cb_bookCategory.SelectedIndex = 0;
 
             List<BookEntity> bookList = bookService.GetAllBooks();
             list_book_print(bookList);
@@ -45,7 +45,7 @@ namespace Management_Books
                 MessageBox.Show("검색어를 입력 해주세요."); return;
             }
 
-            List<BookEntity> bookList = bookService.SearchOption(cb_category.Text, tb_search.Text);
+            List<BookEntity> bookList = bookService.SearchOption(cb_bookCategory.Text, tb_search.Text);
             list_book_print(bookList);
         }
 

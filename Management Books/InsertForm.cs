@@ -24,49 +24,46 @@ namespace Management_Books
 
         private void InsertForm_Load(object sender, EventArgs e)
         {
-            cb_category.Items.Add("경제/경영");
-            cb_category.Items.Add("과학");
-            cb_category.Items.Add("도감");
-            cb_category.Items.Add("만화");
-            cb_category.Items.Add("소설");
-            cb_category.Items.Add("인문");
-            cb_category.Items.Add("자기계발");
-            cb_category.Items.Add("자소전");
-            cb_category.Items.Add("희곡");
-            cb_category.SelectedIndex = 0;
-			tb_bookCount.Text = "1";
+            cb_bookCategory.Items.Add("경제/경영");
+            cb_bookCategory.Items.Add("과학");
+            cb_bookCategory.Items.Add("도감");
+            cb_bookCategory.Items.Add("만화");
+            cb_bookCategory.Items.Add("소설");
+            cb_bookCategory.Items.Add("인문");
+            cb_bookCategory.Items.Add("자기계발");
+            cb_bookCategory.Items.Add("자소전");
+            cb_bookCategory.Items.Add("희곡");
+            cb_bookCategory.SelectedIndex = 0;
+			tb_bookCount.Value = 1;
 		}
 
         private void btn_reset_Click(object sender, EventArgs e)
         {
-            cb_category.SelectedIndex = 0;
-            tb_title.Text = "";
-			tb_author.Text = "";
-			tb_bookCount.Text = "1";
+            // cb_bookCategory.SelectedIndex = 0;
+            tb_bookTitle.Text = "";
+			tb_bookAuthor.Text = "";
+			tb_bookCount.Value = 1;
         }
 
         private void btn_insert_Click(object sender, EventArgs e)
         {
-			// 비교문으로 입력안된 부분 있으면 입력하라고 안내하는 코드 (황상욱)
-			// cb_category, tb_title, tb_author, tb_quantity 값 읽어서 DB에 저장하는 로직
-			if (CheckString(tb_title.Text)
-				|| CheckString(tb_author.Text)
-				|| CheckString(tb_bookCount.Text))
+			if (CheckString(tb_bookTitle.Text))
 			{
-				MessageBox.Show("데이터를 전부 입력 해주세요."); return;
+				MessageBox.Show("도서 제목을 입력해 주세요."); return;
 			}
 
-			int copyCount;
-			if (!int.TryParse(tb_bookCount.Text, out copyCount))
+			if (CheckString(tb_bookAuthor.Text))
 			{
-				MessageBox.Show("숫자를 입력 해주세요."); return;
-			}
-			if (copyCount < 1)
-			{
-				MessageBox.Show("1 이상의 숫자를 입력 해주세요."); return;
+				MessageBox.Show("도서 저자를 입력해 주세요."); return;
 			}
 
-			DataSendEvent(cb_category.Text.Trim(), tb_title.Text.Trim(), tb_author.Text.Trim(), copyCount);
+			int bookCount = (int) tb_bookCount.Value;
+			
+			if (bookCount > 1000 || bookCount < 1)
+			{
+				MessageBox.Show("[책 갯수 입력값 Error]\n\n[입력한 값 : " + bookCount  + "]\n(1 ~ 1000) 사이의 값을 입력해 주세요."); return;
+			}
+			DataSendEvent(cb_bookCategory.Text.Trim(), tb_bookTitle.Text.Trim(), tb_bookAuthor.Text.Trim(), bookCount);
 			this.Close();
 		}
 

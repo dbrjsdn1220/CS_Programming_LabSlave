@@ -28,102 +28,124 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tb_pwd = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tb_id = new System.Windows.Forms.TextBox();
-            this.btn_login = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.pb_pwd = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_pwd)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // tb_pwd
-            // 
-            this.tb_pwd.Location = new System.Drawing.Point(93, 52);
-            this.tb_pwd.Name = "tb_pwd";
-            this.tb_pwd.Size = new System.Drawing.Size(168, 21);
-            this.tb_pwd.TabIndex = 8;
-            this.tb_pwd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_pwd_KeyDown);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 55);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "비밀번호";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "아이디";
-            // 
-            // tb_id
-            // 
-            this.tb_id.Location = new System.Drawing.Point(93, 25);
-            this.tb_id.Name = "tb_id";
-            this.tb_id.Size = new System.Drawing.Size(168, 21);
-            this.tb_id.TabIndex = 5;
-            // 
-            // btn_login
-            // 
-            this.btn_login.BackColor = System.Drawing.Color.Gold;
-            this.btn_login.Location = new System.Drawing.Point(186, 88);
-            this.btn_login.Name = "btn_login";
-            this.btn_login.Size = new System.Drawing.Size(75, 23);
-            this.btn_login.TabIndex = 10;
-            this.btn_login.Text = "로그인";
-            this.btn_login.UseVisualStyleBackColor = false;
-            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
-            // 
-            // pb_pwd
-            // 
-            this.pb_pwd.ErrorImage = null;
-            this.pb_pwd.Image = global::Management_Books.Properties.Resources.hide_pwd;
-            this.pb_pwd.InitialImage = null;
-            this.pb_pwd.Location = new System.Drawing.Point(266, 54);
-            this.pb_pwd.Name = "pb_pwd";
-            this.pb_pwd.Size = new System.Drawing.Size(20, 19);
-            this.pb_pwd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_pwd.TabIndex = 11;
-            this.pb_pwd.TabStop = false;
-            this.pb_pwd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
-            this.pb_pwd.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pb_pwd_MouseUp);
-            // 
-            // LoginForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 131);
-            this.Controls.Add(this.pb_pwd);
-            this.Controls.Add(this.btn_login);
-            this.Controls.Add(this.tb_pwd);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.tb_id);
-            this.Name = "LoginForm";
-            this.Text = "관리자 로그인";
-            this.Load += new System.EventHandler(this.LoginFoam_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_pwd)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.tb_userPwd = new System.Windows.Forms.TextBox();
+			this.lb_userPwd = new System.Windows.Forms.Label();
+			this.lb_userId = new System.Windows.Forms.Label();
+			this.tb_userId = new System.Windows.Forms.TextBox();
+			this.btn_login = new System.Windows.Forms.Button();
+			this.pb_userPwd = new System.Windows.Forms.PictureBox();
+			this.lb_title = new System.Windows.Forms.Label();
+			((System.ComponentModel.ISupportInitialize)(this.pb_userPwd)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// tb_userPwd
+			// 
+			this.tb_userPwd.Location = new System.Drawing.Point(102, 206);
+			this.tb_userPwd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.tb_userPwd.Name = "tb_userPwd";
+			this.tb_userPwd.Size = new System.Drawing.Size(200, 25);
+			this.tb_userPwd.TabIndex = 8;
+			this.tb_userPwd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_pwd_KeyDown);
+			// 
+			// lb_userPwd
+			// 
+			this.lb_userPwd.AutoSize = true;
+			this.lb_userPwd.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.lb_userPwd.Location = new System.Drawing.Point(10, 207);
+			this.lb_userPwd.Name = "lb_userPwd";
+			this.lb_userPwd.Size = new System.Drawing.Size(86, 23);
+			this.lb_userPwd.TabIndex = 7;
+			this.lb_userPwd.Text = "비밀번호";
+			// 
+			// lb_userId
+			// 
+			this.lb_userId.AutoSize = true;
+			this.lb_userId.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.lb_userId.Location = new System.Drawing.Point(12, 173);
+			this.lb_userId.Name = "lb_userId";
+			this.lb_userId.Size = new System.Drawing.Size(72, 23);
+			this.lb_userId.TabIndex = 6;
+			this.lb_userId.Text = " 아이디";
+			// 
+			// tb_userId
+			// 
+			this.tb_userId.Location = new System.Drawing.Point(102, 171);
+			this.tb_userId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.tb_userId.Name = "tb_userId";
+			this.tb_userId.Size = new System.Drawing.Size(200, 25);
+			this.tb_userId.TabIndex = 5;
+			// 
+			// btn_login
+			// 
+			this.btn_login.BackColor = System.Drawing.Color.Gold;
+			this.btn_login.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.btn_login.Location = new System.Drawing.Point(354, 171);
+			this.btn_login.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.btn_login.Name = "btn_login";
+			this.btn_login.Size = new System.Drawing.Size(125, 60);
+			this.btn_login.TabIndex = 10;
+			this.btn_login.Text = "로그인";
+			this.btn_login.UseVisualStyleBackColor = false;
+			this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
+			// 
+			// pb_userPwd
+			// 
+			this.pb_userPwd.ErrorImage = null;
+			this.pb_userPwd.Image = global::Management_Books.Properties.Resources.hide_pwd;
+			this.pb_userPwd.InitialImage = null;
+			this.pb_userPwd.Location = new System.Drawing.Point(308, 207);
+			this.pb_userPwd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.pb_userPwd.Name = "pb_userPwd";
+			this.pb_userPwd.Size = new System.Drawing.Size(23, 24);
+			this.pb_userPwd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pb_userPwd.TabIndex = 11;
+			this.pb_userPwd.TabStop = false;
+			this.pb_userPwd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+			this.pb_userPwd.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pb_pwd_MouseUp);
+			// 
+			// lb_title
+			// 
+			this.lb_title.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.lb_title.AutoSize = true;
+			this.lb_title.Font = new System.Drawing.Font("맑은 고딕", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.lb_title.Location = new System.Drawing.Point(73, 19);
+			this.lb_title.Name = "lb_title";
+			this.lb_title.Size = new System.Drawing.Size(360, 62);
+			this.lb_title.TabIndex = 12;
+			this.lb_title.Text = "  관리자 로그인";
+			this.lb_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// LoginForm
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(500, 250);
+			this.Controls.Add(this.lb_title);
+			this.Controls.Add(this.pb_userPwd);
+			this.Controls.Add(this.btn_login);
+			this.Controls.Add(this.lb_userPwd);
+			this.Controls.Add(this.tb_userPwd);
+			this.Controls.Add(this.lb_userId);
+			this.Controls.Add(this.tb_userId);
+			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.Name = "LoginForm";
+			this.Text = "도서 프로그램 (관리자 모드)";
+			this.Load += new System.EventHandler(this.LoginFoam_Load);
+			((System.ComponentModel.ISupportInitialize)(this.pb_userPwd)).EndInit();
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox tb_pwd;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tb_id;
+        private System.Windows.Forms.TextBox tb_userPwd;
+        private System.Windows.Forms.Label lb_userPwd;
+        private System.Windows.Forms.Label lb_userId;
+        private System.Windows.Forms.TextBox tb_userId;
         private System.Windows.Forms.Button btn_login;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.PictureBox pb_pwd;
-    }
+        private System.Windows.Forms.PictureBox pb_userPwd;
+		private System.Windows.Forms.Label lb_title;
+	}
 }

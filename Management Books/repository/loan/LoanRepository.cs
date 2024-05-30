@@ -24,7 +24,6 @@ namespace Management_Books.repository.loan
 		{
 			string startDate = DateTime.Now.ToString("yyyy-MM-dd");
 			string endDate = DateTime.Today.AddDays(7).ToString("yyyy-MM-dd");
-			
 			string queryLoans = "INSERT INTO loans(copyBook_id, student_id, start_date, end_date, extend) VALUES(@copyBook_id, @student_id, @start_date, @end_date, @extend)";
 
 			try
@@ -234,13 +233,12 @@ namespace Management_Books.repository.loan
 			return Tuple.Create(nowCount, maxCount);
 		}
 
-		public List<LoanEntity> GetLoansByCopyId(long bookId)
+		public List<LoanEntity> GetCopyBookIdByLoans(long bookId)
 		{
 			string queryLoans = "SELECT loans.* " +
 								"FROM copy_books " +
 								"INNER JOIN loans ON copy_books.copyBook_id = loans.copyBook_id " +
 								"WHERE copy_books.book_id IN (@book_id)";
-
 			try
 			{
 				cmd = GetCommand(queryLoans, conn);

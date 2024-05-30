@@ -28,130 +28,169 @@
         /// </summary>
         private void InitializeComponent()
         {
-			this.label1 = new System.Windows.Forms.Label();
-			this.tb_title = new System.Windows.Forms.TextBox();
-			this.tb_author = new System.Windows.Forms.TextBox();
-			this.label3 = new System.Windows.Forms.Label();
-			this.tb_bookCount = new System.Windows.Forms.TextBox();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.cb_category = new System.Windows.Forms.ComboBox();
-			this.btn_insert = new System.Windows.Forms.Button();
+			this.lb_bookTitle = new System.Windows.Forms.Label();
+			this.tb_bookTitle = new System.Windows.Forms.TextBox();
+			this.tb_bookAuthor = new System.Windows.Forms.TextBox();
+			this.lb_bookAuthor = new System.Windows.Forms.Label();
+			this.lb_bookCount = new System.Windows.Forms.Label();
+			this.lb_bookCategory = new System.Windows.Forms.Label();
+			this.cb_bookCategory = new System.Windows.Forms.ComboBox();
+			this.btn_insertBook = new System.Windows.Forms.Button();
 			this.btn_reset = new System.Windows.Forms.Button();
+			this.tb_bookCount = new System.Windows.Forms.NumericUpDown();
+			this.lb_title = new System.Windows.Forms.Label();
+			((System.ComponentModel.ISupportInitialize)(this.tb_bookCount)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// label1
+			// lb_bookTitle
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(37, 68);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(37, 15);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "제목";
+			this.lb_bookTitle.AutoSize = true;
+			this.lb_bookTitle.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.lb_bookTitle.Location = new System.Drawing.Point(44, 132);
+			this.lb_bookTitle.Name = "lb_bookTitle";
+			this.lb_bookTitle.Size = new System.Drawing.Size(48, 23);
+			this.lb_bookTitle.TabIndex = 0;
+			this.lb_bookTitle.Text = "제목";
 			// 
-			// tb_title
+			// tb_bookTitle
 			// 
-			this.tb_title.Location = new System.Drawing.Point(77, 62);
-			this.tb_title.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.tb_title.Name = "tb_title";
-			this.tb_title.Size = new System.Drawing.Size(138, 25);
-			this.tb_title.TabIndex = 1;
+			this.tb_bookTitle.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.tb_bookTitle.Location = new System.Drawing.Point(124, 129);
+			this.tb_bookTitle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.tb_bookTitle.Name = "tb_bookTitle";
+			this.tb_bookTitle.Size = new System.Drawing.Size(180, 30);
+			this.tb_bookTitle.TabIndex = 1;
 			// 
-			// tb_author
+			// tb_bookAuthor
 			// 
-			this.tb_author.Location = new System.Drawing.Point(77, 95);
-			this.tb_author.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.tb_author.Name = "tb_author";
-			this.tb_author.Size = new System.Drawing.Size(138, 25);
-			this.tb_author.TabIndex = 19;
+			this.tb_bookAuthor.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.tb_bookAuthor.Location = new System.Drawing.Point(124, 182);
+			this.tb_bookAuthor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.tb_bookAuthor.Name = "tb_bookAuthor";
+			this.tb_bookAuthor.Size = new System.Drawing.Size(180, 30);
+			this.tb_bookAuthor.TabIndex = 19;
 			// 
-			// label3
+			// lb_bookAuthor
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(37, 99);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(37, 15);
-			this.label3.TabIndex = 18;
-			this.label3.Text = "저자";
+			this.lb_bookAuthor.AutoSize = true;
+			this.lb_bookAuthor.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.lb_bookAuthor.Location = new System.Drawing.Point(44, 185);
+			this.lb_bookAuthor.Name = "lb_bookAuthor";
+			this.lb_bookAuthor.Size = new System.Drawing.Size(48, 23);
+			this.lb_bookAuthor.TabIndex = 18;
+			this.lb_bookAuthor.Text = "저자";
 			// 
-			// tb_bookCount
+			// lb_bookCount
 			// 
-			this.tb_bookCount.Location = new System.Drawing.Point(77, 128);
-			this.tb_bookCount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.tb_bookCount.Name = "tb_bookCount";
-			this.tb_bookCount.Size = new System.Drawing.Size(138, 25);
-			this.tb_bookCount.TabIndex = 21;
+			this.lb_bookCount.AutoSize = true;
+			this.lb_bookCount.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.lb_bookCount.Location = new System.Drawing.Point(44, 232);
+			this.lb_bookCount.Name = "lb_bookCount";
+			this.lb_bookCount.Size = new System.Drawing.Size(48, 23);
+			this.lb_bookCount.TabIndex = 20;
+			this.lb_bookCount.Text = "권수";
 			// 
-			// label4
+			// lb_bookCategory
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(37, 133);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(37, 15);
-			this.label4.TabIndex = 20;
-			this.label4.Text = "권수";
+			this.lb_bookCategory.AutoSize = true;
+			this.lb_bookCategory.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.lb_bookCategory.Location = new System.Drawing.Point(44, 83);
+			this.lb_bookCategory.Name = "lb_bookCategory";
+			this.lb_bookCategory.Size = new System.Drawing.Size(48, 23);
+			this.lb_bookCategory.TabIndex = 22;
+			this.lb_bookCategory.Text = "분류";
 			// 
-			// label5
+			// cb_bookCategory
 			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(37, 34);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(37, 15);
-			this.label5.TabIndex = 22;
-			this.label5.Text = "분류";
+			this.cb_bookCategory.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.cb_bookCategory.FormattingEnabled = true;
+			this.cb_bookCategory.Location = new System.Drawing.Point(124, 80);
+			this.cb_bookCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.cb_bookCategory.Name = "cb_bookCategory";
+			this.cb_bookCategory.Size = new System.Drawing.Size(180, 31);
+			this.cb_bookCategory.TabIndex = 23;
 			// 
-			// cb_category
+			// btn_insertBook
 			// 
-			this.cb_category.FormattingEnabled = true;
-			this.cb_category.Location = new System.Drawing.Point(77, 30);
-			this.cb_category.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.cb_category.Name = "cb_category";
-			this.cb_category.Size = new System.Drawing.Size(138, 23);
-			this.cb_category.TabIndex = 23;
-			// 
-			// btn_insert
-			// 
-			this.btn_insert.BackColor = System.Drawing.Color.Gold;
-			this.btn_insert.Location = new System.Drawing.Point(135, 172);
-			this.btn_insert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.btn_insert.Name = "btn_insert";
-			this.btn_insert.Size = new System.Drawing.Size(80, 29);
-			this.btn_insert.TabIndex = 24;
-			this.btn_insert.Text = "추가";
-			this.btn_insert.UseVisualStyleBackColor = false;
-			this.btn_insert.Click += new System.EventHandler(this.btn_insert_Click);
+			this.btn_insertBook.BackColor = System.Drawing.Color.Gold;
+			this.btn_insertBook.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.btn_insertBook.Location = new System.Drawing.Point(189, 294);
+			this.btn_insertBook.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.btn_insertBook.Name = "btn_insertBook";
+			this.btn_insertBook.Size = new System.Drawing.Size(105, 35);
+			this.btn_insertBook.TabIndex = 24;
+			this.btn_insertBook.Text = "추가";
+			this.btn_insertBook.UseVisualStyleBackColor = false;
+			this.btn_insertBook.Click += new System.EventHandler(this.btn_insert_Click);
 			// 
 			// btn_reset
 			// 
 			this.btn_reset.BackColor = System.Drawing.Color.LightGray;
-			this.btn_reset.Location = new System.Drawing.Point(39, 172);
+			this.btn_reset.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.btn_reset.Location = new System.Drawing.Point(63, 294);
 			this.btn_reset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btn_reset.Name = "btn_reset";
-			this.btn_reset.Size = new System.Drawing.Size(80, 29);
+			this.btn_reset.Size = new System.Drawing.Size(105, 35);
 			this.btn_reset.TabIndex = 25;
 			this.btn_reset.Text = "초기화";
 			this.btn_reset.UseVisualStyleBackColor = false;
 			this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
 			// 
+			// tb_bookCount
+			// 
+			this.tb_bookCount.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.tb_bookCount.Location = new System.Drawing.Point(124, 230);
+			this.tb_bookCount.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+			this.tb_bookCount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.tb_bookCount.Name = "tb_bookCount";
+			this.tb_bookCount.Size = new System.Drawing.Size(180, 30);
+			this.tb_bookCount.TabIndex = 26;
+			this.tb_bookCount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			// 
+			// lb_title
+			// 
+			this.lb_title.Dock = System.Windows.Forms.DockStyle.Top;
+			this.lb_title.Font = new System.Drawing.Font("나눔바른고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.lb_title.Location = new System.Drawing.Point(0, 0);
+			this.lb_title.Name = "lb_title";
+			this.lb_title.Size = new System.Drawing.Size(355, 48);
+			this.lb_title.TabIndex = 27;
+			this.lb_title.Text = "도서 정보 추가";
+			this.lb_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// InsertForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(257, 224);
-			this.Controls.Add(this.btn_reset);
-			this.Controls.Add(this.btn_insert);
-			this.Controls.Add(this.cb_category);
-			this.Controls.Add(this.label5);
+			this.ClientSize = new System.Drawing.Size(355, 351);
+			this.Controls.Add(this.lb_title);
 			this.Controls.Add(this.tb_bookCount);
-			this.Controls.Add(this.label4);
-			this.Controls.Add(this.tb_author);
-			this.Controls.Add(this.label3);
-			this.Controls.Add(this.tb_title);
-			this.Controls.Add(this.label1);
+			this.Controls.Add(this.btn_reset);
+			this.Controls.Add(this.btn_insertBook);
+			this.Controls.Add(this.cb_bookCategory);
+			this.Controls.Add(this.lb_bookCategory);
+			this.Controls.Add(this.lb_bookCount);
+			this.Controls.Add(this.tb_bookAuthor);
+			this.Controls.Add(this.lb_bookAuthor);
+			this.Controls.Add(this.tb_bookTitle);
+			this.Controls.Add(this.lb_bookTitle);
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "InsertForm";
-			this.Text = "도서 추가";
+			this.Text = "도서 정보 추가";
 			this.Load += new System.EventHandler(this.InsertForm_Load);
+			((System.ComponentModel.ISupportInitialize)(this.tb_bookCount)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -159,15 +198,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tb_title;
-        private System.Windows.Forms.TextBox tb_author;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tb_bookCount;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cb_category;
-        private System.Windows.Forms.Button btn_insert;
+        private System.Windows.Forms.Label lb_bookTitle;
+        private System.Windows.Forms.TextBox tb_bookTitle;
+        private System.Windows.Forms.TextBox tb_bookAuthor;
+        private System.Windows.Forms.Label lb_bookAuthor;
+        private System.Windows.Forms.Label lb_bookCount;
+        private System.Windows.Forms.Label lb_bookCategory;
+        private System.Windows.Forms.ComboBox cb_bookCategory;
+        private System.Windows.Forms.Button btn_insertBook;
         private System.Windows.Forms.Button btn_reset;
-    }
+		private System.Windows.Forms.NumericUpDown tb_bookCount;
+		private System.Windows.Forms.Label lb_title;
+	}
 }

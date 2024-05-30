@@ -53,10 +53,6 @@ namespace Management_Books
 			}
 
 			int selectRow = list_copy.SelectedItems[0].Index;
-			/*if (list_copy.Items[selectRow].SubItems[5].Text == "O")
-			{
-				MessageBox.Show("현재 도서관에 존재하지 않는 책입니다."); return;
-			}*/
 			int studentId = -1;
 			long CopyBookId = long.Parse(list_copy.Items[selectRow].SubItems[0].Text);
 			int.TryParse(list_copy.Items[selectRow].SubItems[1].Text, out studentId);
@@ -84,6 +80,8 @@ namespace Management_Books
 			{
 				MessageBox.Show("대출 연장을 실패했습니다."); return;
 			}
+			int studentId = int.Parse(list_copy.Items[selectRow].SubItems[1].Text);
+			MessageBox.Show("[이용자 : " + studentId.ToString() + "]님이 " + book.getTitle() + "(" + copyBookId.ToString() + ")의 책의 대출 기한을 연장(+7일) 하였습니다.");
 			Request();
 		}
 
