@@ -32,9 +32,9 @@ namespace Management_Books
 			list_copy.Columns.Add("존재 유무", (int)(list_copy.Width * 0.10));
 
 			book = bookService.FindBookByBookId(bookId);
-			tb_category.Text = book.getCategory();
-			tb_title.Text = book.getTitle();
-			tb_author.Text = book.getAuthor();
+			tb_bookCategory.Text = book.getCategory();
+			tb_bookTitle.Text = book.getTitle();
+			tb_bookAuthor.Text = book.getAuthor();
 
 			List<CopyBookEntity> copyList = bookService.FindAllBookIdByCopyBook(book.getBookId());
 			list_copyBook_print(copyList);

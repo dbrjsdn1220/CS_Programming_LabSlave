@@ -39,9 +39,9 @@ namespace Management_Books
 			list_copy.Columns.Add("책 존재", (int)(list_copy.Width * 0.145));
 
 			book = bookService.FindBookByBookId(bookId);
-			tb_category.Text = book.getCategory();
-			tb_title.Text = book.getTitle();
-			tb_author.Text = book.getAuthor();
+			tb_bookCategory.Text = book.getCategory();
+			tb_bookTitle.Text = book.getTitle();
+			tb_bookAuthor.Text = book.getAuthor();
 			Request();
 		}
 
@@ -56,7 +56,7 @@ namespace Management_Books
 			int studentId = -1;
 			long CopyBookId = long.Parse(list_copy.Items[selectRow].SubItems[0].Text);
 			int.TryParse(list_copy.Items[selectRow].SubItems[1].Text, out studentId);
-			BorrowForm subFrom = new BorrowForm(CopyBookId, studentId, tb_title.Text, tb_author.Text);
+			BorrowForm subFrom = new BorrowForm(CopyBookId, studentId, tb_bookTitle.Text, tb_bookAuthor.Text);
 			subFrom.ShowDialog();
 			Request();
 		}

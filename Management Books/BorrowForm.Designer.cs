@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
 			this.btn_borrow = new System.Windows.Forms.Button();
-			this.label3 = new System.Windows.Forms.Label();
+			this.lb_grade = new System.Windows.Forms.Label();
 			this.lb_bookId = new System.Windows.Forms.Label();
 			this.tb_bookId = new System.Windows.Forms.TextBox();
 			this.cb_grade = new System.Windows.Forms.ComboBox();
 			this.cb_class = new System.Windows.Forms.ComboBox();
 			this.cb_number = new System.Windows.Forms.ComboBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
+			this.lb_class = new System.Windows.Forms.Label();
+			this.lb_number = new System.Windows.Forms.Label();
 			this.lb_bookTitle = new System.Windows.Forms.Label();
 			this.tb_bookTitle = new System.Windows.Forms.TextBox();
 			this.btn_return = new System.Windows.Forms.Button();
 			this.list_loan = new System.Windows.Forms.ListView();
 			this.lb_bookAuthor = new System.Windows.Forms.Label();
 			this.tb_bookAuthor = new System.Windows.Forms.TextBox();
-			this.label2 = new System.Windows.Forms.Label();
+			this.lb_title = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// btn_borrow
@@ -59,15 +59,15 @@
 			this.btn_borrow.UseVisualStyleBackColor = false;
 			this.btn_borrow.Click += new System.EventHandler(this.btn_borrow_Click);
 			// 
-			// label3
+			// lb_grade
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-			this.label3.Location = new System.Drawing.Point(20, 143);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(48, 23);
-			this.label3.TabIndex = 13;
-			this.label3.Text = "학년";
+			this.lb_grade.AutoSize = true;
+			this.lb_grade.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.lb_grade.Location = new System.Drawing.Point(20, 143);
+			this.lb_grade.Name = "lb_grade";
+			this.lb_grade.Size = new System.Drawing.Size(48, 23);
+			this.lb_grade.TabIndex = 13;
+			this.lb_grade.Text = "학년";
 			// 
 			// lb_bookId
 			// 
@@ -125,25 +125,25 @@
 			this.cb_number.TabIndex = 28;
 			this.cb_number.ValueMember = "제목";
 			// 
-			// label1
+			// lb_class
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-			this.label1.Location = new System.Drawing.Point(29, 182);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(29, 23);
-			this.label1.TabIndex = 29;
-			this.label1.Text = "반";
+			this.lb_class.AutoSize = true;
+			this.lb_class.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.lb_class.Location = new System.Drawing.Point(29, 182);
+			this.lb_class.Name = "lb_class";
+			this.lb_class.Size = new System.Drawing.Size(29, 23);
+			this.lb_class.TabIndex = 29;
+			this.lb_class.Text = "반";
 			// 
-			// label4
+			// lb_number
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-			this.label4.Location = new System.Drawing.Point(20, 221);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(48, 23);
-			this.label4.TabIndex = 30;
-			this.label4.Text = "번호";
+			this.lb_number.AutoSize = true;
+			this.lb_number.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.lb_number.Location = new System.Drawing.Point(20, 221);
+			this.lb_number.Name = "lb_number";
+			this.lb_number.Size = new System.Drawing.Size(48, 23);
+			this.lb_number.TabIndex = 30;
+			this.lb_number.Text = "번호";
 			// 
 			// lb_bookTitle
 			// 
@@ -180,6 +180,7 @@
 			// 
 			// list_loan
 			// 
+			this.list_loan.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
 			this.list_loan.FullRowSelect = true;
 			this.list_loan.GridLines = true;
 			this.list_loan.HideSelection = false;
@@ -211,35 +212,35 @@
 			this.tb_bookAuthor.Size = new System.Drawing.Size(180, 30);
 			this.tb_bookAuthor.TabIndex = 38;
 			// 
-			// label2
+			// lb_title
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("나눔바른고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-			this.label2.Location = new System.Drawing.Point(4, 9);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(430, 46);
-			this.label2.TabIndex = 39;
-			this.label2.Text = "도서 (대출/반납) 페이지";
+			this.lb_title.AutoSize = true;
+			this.lb_title.Font = new System.Drawing.Font("나눔바른고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.lb_title.Location = new System.Drawing.Point(4, 9);
+			this.lb_title.Name = "lb_title";
+			this.lb_title.Size = new System.Drawing.Size(430, 46);
+			this.lb_title.TabIndex = 39;
+			this.lb_title.Text = "도서 (대출/반납) 페이지";
 			// 
 			// BorrowForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 350);
-			this.Controls.Add(this.label2);
+			this.Controls.Add(this.lb_title);
 			this.Controls.Add(this.tb_bookAuthor);
 			this.Controls.Add(this.lb_bookAuthor);
 			this.Controls.Add(this.list_loan);
 			this.Controls.Add(this.btn_return);
 			this.Controls.Add(this.tb_bookTitle);
 			this.Controls.Add(this.lb_bookTitle);
-			this.Controls.Add(this.label4);
-			this.Controls.Add(this.label1);
+			this.Controls.Add(this.lb_number);
+			this.Controls.Add(this.lb_class);
 			this.Controls.Add(this.cb_number);
 			this.Controls.Add(this.cb_class);
 			this.Controls.Add(this.cb_grade);
 			this.Controls.Add(this.btn_borrow);
-			this.Controls.Add(this.label3);
+			this.Controls.Add(this.lb_grade);
 			this.Controls.Add(this.lb_bookId);
 			this.Controls.Add(this.tb_bookId);
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -254,20 +255,20 @@
         #endregion
 
         private System.Windows.Forms.Button btn_borrow;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lb_grade;
         private System.Windows.Forms.Label lb_bookId;
         private System.Windows.Forms.TextBox tb_bookId;
 		private System.Windows.Forms.ComboBox cb_grade;
 		private System.Windows.Forms.ComboBox cb_class;
 		private System.Windows.Forms.ComboBox cb_number;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label lb_class;
+		private System.Windows.Forms.Label lb_number;
 		private System.Windows.Forms.Label lb_bookTitle;
 		private System.Windows.Forms.TextBox tb_bookTitle;
 		private System.Windows.Forms.Button btn_return;
 		private System.Windows.Forms.ListView list_loan;
 		private System.Windows.Forms.Label lb_bookAuthor;
 		private System.Windows.Forms.TextBox tb_bookAuthor;
-		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label lb_title;
 	}
 }
