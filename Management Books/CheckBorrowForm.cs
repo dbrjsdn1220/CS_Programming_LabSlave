@@ -49,7 +49,7 @@ namespace Management_Books
             list_loan.Columns.Add("대출자", (int)(list_loan.Width * 0.20));
             list_loan.Columns.Add("대출 일자", (int)(list_loan.Width * 0.25));
             list_loan.Columns.Add("반납 예정", (int)(list_loan.Width * 0.25));
-            list_loan.Columns.Add("연장 유무", (int)(list_loan.Width * 0.15));
+            list_loan.Columns.Add("연장 유무", (int)(list_loan.Width * 0.145));
         }
 
         private void btn_select_Click(object sender, EventArgs e)

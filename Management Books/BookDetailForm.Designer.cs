@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-			this.label5 = new System.Windows.Forms.Label();
+			this.lb_bookCategory = new System.Windows.Forms.Label();
 			this.tb_author = new System.Windows.Forms.TextBox();
-			this.label4 = new System.Windows.Forms.Label();
+			this.lb_bookAuthor = new System.Windows.Forms.Label();
 			this.tb_title = new System.Windows.Forms.TextBox();
-			this.label1 = new System.Windows.Forms.Label();
+			this.lb_bookTitle = new System.Windows.Forms.Label();
 			this.list_copy = new System.Windows.Forms.ListView();
 			this.tb_category = new System.Windows.Forms.TextBox();
 			this.btn_extend = new System.Windows.Forms.Button();
 			this.btn_borrow = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
-			// label5
+			// lb_bookCategory
 			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(21, 24);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(37, 15);
-			this.label5.TabIndex = 30;
-			this.label5.Text = "분류";
+			this.lb_bookCategory.AutoSize = true;
+			this.lb_bookCategory.Location = new System.Drawing.Point(21, 24);
+			this.lb_bookCategory.Name = "lb_bookCategory";
+			this.lb_bookCategory.Size = new System.Drawing.Size(37, 15);
+			this.lb_bookCategory.TabIndex = 30;
+			this.lb_bookCategory.Text = "분류";
 			// 
 			// tb_author
 			// 
@@ -57,14 +57,14 @@
 			this.tb_author.Size = new System.Drawing.Size(206, 25);
 			this.tb_author.TabIndex = 29;
 			// 
-			// label4
+			// lb_bookAuthor
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(453, 25);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(37, 15);
-			this.label4.TabIndex = 28;
-			this.label4.Text = "저자";
+			this.lb_bookAuthor.AutoSize = true;
+			this.lb_bookAuthor.Location = new System.Drawing.Point(453, 25);
+			this.lb_bookAuthor.Name = "lb_bookAuthor";
+			this.lb_bookAuthor.Size = new System.Drawing.Size(37, 15);
+			this.lb_bookAuthor.TabIndex = 28;
+			this.lb_bookAuthor.Text = "저자";
 			// 
 			// tb_title
 			// 
@@ -75,14 +75,14 @@
 			this.tb_title.Size = new System.Drawing.Size(189, 25);
 			this.tb_title.TabIndex = 25;
 			// 
-			// label1
+			// lb_bookTitle
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(191, 25);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(37, 15);
-			this.label1.TabIndex = 24;
-			this.label1.Text = "제목";
+			this.lb_bookTitle.AutoSize = true;
+			this.lb_bookTitle.Location = new System.Drawing.Point(191, 25);
+			this.lb_bookTitle.Name = "lb_bookTitle";
+			this.lb_bookTitle.Size = new System.Drawing.Size(37, 15);
+			this.lb_bookTitle.TabIndex = 24;
+			this.lb_bookTitle.Text = "제목";
 			// 
 			// list_copy
 			// 
@@ -138,11 +138,11 @@
 			this.Controls.Add(this.btn_extend);
 			this.Controls.Add(this.tb_category);
 			this.Controls.Add(this.list_copy);
-			this.Controls.Add(this.label5);
+			this.Controls.Add(this.lb_bookCategory);
 			this.Controls.Add(this.tb_author);
-			this.Controls.Add(this.label4);
+			this.Controls.Add(this.lb_bookAuthor);
 			this.Controls.Add(this.tb_title);
-			this.Controls.Add(this.label1);
+			this.Controls.Add(this.lb_bookTitle);
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "BookDetailForm";
 			this.Text = "상세 정보";
@@ -153,11 +153,11 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lb_bookCategory;
         private System.Windows.Forms.TextBox tb_author;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lb_bookAuthor;
         private System.Windows.Forms.TextBox tb_title;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_bookTitle;
         private System.Windows.Forms.ListView list_copy;
         private System.Windows.Forms.TextBox tb_category;
         private System.Windows.Forms.Button btn_extend;

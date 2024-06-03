@@ -42,7 +42,7 @@
 			// tb_search
 			// 
 			this.tb_search.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-			this.tb_search.Location = new System.Drawing.Point(119, 140);
+			this.tb_search.Location = new System.Drawing.Point(119, 139);
 			this.tb_search.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.tb_search.Name = "tb_search";
 			this.tb_search.Size = new System.Drawing.Size(563, 30);
@@ -127,7 +127,7 @@
 			// 
 			this.btn_checkBorrow.BackColor = System.Drawing.Color.Gold;
 			this.btn_checkBorrow.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-			this.btn_checkBorrow.Location = new System.Drawing.Point(525, 9);
+			this.btn_checkBorrow.Location = new System.Drawing.Point(532, 9);
 			this.btn_checkBorrow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btn_checkBorrow.Name = "btn_checkBorrow";
 			this.btn_checkBorrow.Size = new System.Drawing.Size(150, 38);

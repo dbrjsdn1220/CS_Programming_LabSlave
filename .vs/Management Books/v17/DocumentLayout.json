@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|c:\\users\\lg\\documents\\github\\cs_programming_labslave\\management books\\borrowform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\borrowform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|c:\\users\\lg\\documents\\github\\cs_programming_labslave\\management books\\bookdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\bookdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|c:\\users\\lg\\documents\\github\\cs_programming_labslave\\management books\\bookdetailform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|solutionrelative:management books\\bookdetailform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A48648CF-BADB-4794-A9F8-01C2A29360C1}|Management Books\\Management Books.csproj|c:\\users\\lg\\documents\\github\\cs_programming_labslave\\management books\\borrowform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -23,28 +27,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "BookDetailForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\BookDetailForm.Designer.cs",
+              "RelativeDocumentMoniker": "Management Books\\BookDetailForm.Designer.cs",
+              "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\BookDetailForm.Designer.cs",
+              "RelativeToolTip": "Management Books\\BookDetailForm.Designer.cs",
+              "ViewState": "AQIAAHsAAAAAAAAAAAAywAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T01:58:47.413Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "d5e8e314-9ab6-440c-896b-e3d4e38a25e2",
+        "Display": 0,
+        "X": 56,
+        "Y": 22,
+        "Width": 1296,
+        "Height": 781,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "BorrowForm.cs [\uB514\uC790\uC778]",
               "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\BorrowForm.cs",
               "RelativeDocumentMoniker": "Management Books\\BorrowForm.cs",
               "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\BorrowForm.cs [\uB514\uC790\uC778]",
               "RelativeToolTip": "Management Books\\BorrowForm.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T09:06:03.259Z",
-              "IsPinned": true,
+              "WhenOpened": "2024-06-03T01:58:32.652Z",
               "EditorCaption": " [\uB514\uC790\uC778]"
-            },
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "BorrowForm.cs",
-              "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\BorrowForm.cs",
-              "RelativeDocumentMoniker": "Management Books\\BorrowForm.cs",
-              "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\BorrowForm.cs",
-              "RelativeToolTip": "Management Books\\BorrowForm.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAApwBwAAAAeAAAA",
+              "Title": "BookDetailForm.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\BookDetailForm.cs",
+              "RelativeDocumentMoniker": "Management Books\\BookDetailForm.cs",
+              "ToolTip": "C:\\Users\\LG\\Documents\\GitHub\\CS_Programming_LabSlave\\Management Books\\BookDetailForm.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "Management Books\\BookDetailForm.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T08:36:23.014Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T01:57:33.024Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
             }
           ]
         }

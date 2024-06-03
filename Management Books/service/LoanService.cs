@@ -1,11 +1,6 @@
-﻿using Management_Books.repository.bookCopies;
-using Management_Books.repository.loan;
-using Mysqlx.Crud;
+﻿using Management_Books.repository.loan;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Management_Books.service
 {
@@ -43,7 +38,7 @@ namespace Management_Books.service
 			
 			if (nowCount > 0)
 			{
-				if (loanRepository.DeleteLoan(copyBookId, studentId))
+				if (loanRepository.DeleteLoan(copyBookId))
 				{
 					if (loanRepository.UpdateBookReturnCount(studentId, nowCount))
 					{

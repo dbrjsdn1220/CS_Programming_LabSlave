@@ -81,7 +81,7 @@
 			// 
 			// tb_bookId
 			// 
-			this.tb_bookId.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.tb_bookId.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
 			this.tb_bookId.Location = new System.Drawing.Point(608, 13);
 			this.tb_bookId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.tb_bookId.Name = "tb_bookId";
@@ -157,7 +157,7 @@
 			// 
 			// tb_bookTitle
 			// 
-			this.tb_bookTitle.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.tb_bookTitle.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
 			this.tb_bookTitle.Location = new System.Drawing.Point(608, 51);
 			this.tb_bookTitle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.tb_bookTitle.Name = "tb_bookTitle";
@@ -203,7 +203,7 @@
 			// 
 			// tb_bookAuthor
 			// 
-			this.tb_bookAuthor.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.tb_bookAuthor.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
 			this.tb_bookAuthor.Location = new System.Drawing.Point(608, 89);
 			this.tb_bookAuthor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.tb_bookAuthor.Name = "tb_bookAuthor";

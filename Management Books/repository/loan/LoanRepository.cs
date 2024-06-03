@@ -1,11 +1,6 @@
-﻿using Management_Books.repository.bookCopies;
-using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Asn1.X509;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Management_Books.repository.loan
 {
@@ -50,16 +45,15 @@ namespace Management_Books.repository.loan
 			return false;
 		}
 
-		public bool DeleteLoan(long copyBookId, int studentId)
+		public bool DeleteLoan(long copyBookId)
 		{
-			string queryLoans = "DELETE FROM loans WHERE copyBook_id = @copyBook_id AND student_id = @student_id";
+			string queryLoans = "DELETE FROM loans WHERE copyBook_id = @copyBook_id";
 		
 			try
 			{
 				cmd = GetCommand(queryLoans, conn);
 				cmd.Parameters.Clear();
 				cmd.Parameters.AddWithValue("@copyBook_id", copyBookId);
-				cmd.Parameters.AddWithValue("@student_id", studentId);
 				cmd.ExecuteNonQuery();
 				return true;
 			}

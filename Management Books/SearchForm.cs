@@ -25,9 +25,9 @@ namespace Management_Books
         private void SearchFoam_Load(object sender, EventArgs e)
         {
             // list_book.Sorting = SortOrder.Ascending;
-            list_book.Columns.Add("장르", (int)(list_book.Width * 0.12));
+            list_book.Columns.Add("장르", (int)(list_book.Width * 0.145));
             list_book.Columns.Add("저자", (int)(list_book.Width * 0.2));
-            list_book.Columns.Add("제목", (int)(list_book.Width * 0.58));
+            list_book.Columns.Add("제목", (int)(list_book.Width * 0.55));
             list_book.Columns.Add("잔권", (int)(list_book.Width * 0.1));
 
             cb_bookCategory.Items.Add("제목");

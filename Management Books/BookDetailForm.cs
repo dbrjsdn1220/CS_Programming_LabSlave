@@ -36,7 +36,7 @@ namespace Management_Books
 			list_copy.Columns.Add("대출 일자", (int)(list_copy.Width * 0.20));
 			list_copy.Columns.Add("반납 예정", (int)(list_copy.Width * 0.20));
 			list_copy.Columns.Add("대출 연장", (int)(list_copy.Width * 0.15));
-			list_copy.Columns.Add("책 존재", (int)(list_copy.Width * 0.15));
+			list_copy.Columns.Add("책 존재", (int)(list_copy.Width * 0.145));
 
 			book = bookService.FindBookByBookId(bookId);
 			tb_category.Text = book.getCategory();
